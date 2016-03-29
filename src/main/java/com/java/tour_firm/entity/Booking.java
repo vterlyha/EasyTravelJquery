@@ -11,9 +11,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name="findAllBookedRoomsInHotelsByCityId", query="select hotels.roomQuantity, sum(bookings.roomQuantity) "
+            + "from Booking bookings Right Join "
+            + "Hotel hotels "
+            + "on (bookings.hotel.id = hotels.id) "
+            + "where bookings.city.id=:cityId "
+            + "group by bookings.city.id, hotels.roomQuantity"),
+    
+    @NamedQuery(name="findAllGivenVisasInOneCountry", query="select count(bookings.client.id) "
+            + "from Booking bookings where bookings.country.id=:countryId")
+    })
 @Table (name = "bookings")
 public class Booking {
 

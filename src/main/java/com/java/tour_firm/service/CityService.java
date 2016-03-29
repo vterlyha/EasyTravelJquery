@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.java.tour_firm.dao.DAOFactory;
 import com.java.tour_firm.entity.City;
+import com.java.tour_firm.entity.Hotel;
 
 public class CityService {
 
@@ -28,4 +29,8 @@ public class CityService {
 	public void deleteCity(City c) {
 		DAOFactory.getInstance().getCityDAO().deleteElement(c);
 	}
+	
+	public List<String> findAllHotels(String cityName) {
+        return DAOFactory.getInstance().getCityDAO().findAllHotelsByCityName(cityName);
+    }
 }

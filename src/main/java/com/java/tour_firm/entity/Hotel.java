@@ -8,10 +8,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name="findAllRoomsInHotelsByCityId", query="select hotels.roomQuantity "
+            + "from Hotel hotels where hotels.city.id=:cityId"),
+    
+    @NamedQuery(name="findAvgRoomsBookingAndCountClientsForHotel", query="select count(bookings.client.id), "
+            + "avg(bookings.dateTo - bookings.dateFrom) as AvgClientsStaying "
+            + "from Booking bookings where bookings.hotel.id=:hotelId")
+})
 @Table(name = "hotels")
 public class Hotel {
 	

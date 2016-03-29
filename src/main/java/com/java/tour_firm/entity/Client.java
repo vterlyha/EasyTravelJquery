@@ -11,10 +11,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name="getAllCountriesClientVisited", query="select countries.name "
+            + "from Country countries "
+            + "right join Booking bookings on (countries.id = bookings.country.id) "
+            + "where bookings.client.id=:clientId")
+    })
 @Table (name = "clients")
 public class Client {
     

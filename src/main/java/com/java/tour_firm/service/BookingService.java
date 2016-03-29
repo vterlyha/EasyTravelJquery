@@ -28,4 +28,12 @@ public class BookingService {
     public void deleteBooking(Booking booking) {
         DAOFactory.getInstance().getBookingDAO().deleteElement(booking);
     }
+    
+    public List<Integer> findFreeAllHotels(Integer cityId) {
+        return DAOFactory.getInstance().getBookingDAO().findAllBookedRoomsInHotelsByCityId(cityId);
+    }
+    
+    public List<Integer> findAllVisas(Integer countryId) {
+        return DAOFactory.getInstance().getBookingDAO().findAllGivenVisasInOneCountry(countryId);
+    }
 }
