@@ -11,10 +11,10 @@ import javax.persistence.Query;
 
 public class ElementDAOImpl<E> implements ElementDAO<E> {
 	
-	private Class<E> elementClass;
-	private EntityManager eManager;
-	private EntityTransaction eTransaction = null;
-	private EntityManagerFactory emf;
+	protected Class<E> elementClass;
+	protected EntityManager eManager;
+	protected EntityTransaction eTransaction = null;
+	protected EntityManagerFactory emf;
 	
 	public ElementDAOImpl() {
     }

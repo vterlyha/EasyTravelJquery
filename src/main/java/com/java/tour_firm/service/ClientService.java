@@ -32,5 +32,9 @@ public class ClientService {
     public void deleteClient(Client client) {
         DAOFactory.getInstance().getClientDAO().deleteElement(client);
     }
+    
+    public List<String> findAllCountriesClietnVisited(Integer clientId) {
+        return DAOFactory.getInstance().getClientDAO().getAllCountriesClientVisited(clientId);
+    }
 
 }

@@ -67,4 +67,40 @@ public class HotelDAO extends ElementDAOImpl<Hotel> {
 //		}
 		
 //	}
+	
+	public List<Integer> findAllRoomsInHotelsByCityId(Integer cityId) {
+        List<Integer> resultList;
+        try {
+          eManager = emf.createEntityManager();
+          Query q = eManager.createNamedQuery("findAllRoomsInHotelsByCityId");
+          q.setParameter("cityId", cityId);
+          resultList = q.getResultList();
+          eManager.close();
+          emf.close();
+        }
+        catch(RuntimeException e) {
+            if (eTransaction.isActive())
+                eTransaction.rollback();
+            throw e;
+        }
+        return resultList;
+    }
+	
+	public List<Object[]> findAvgRoomsBookingAndCountClientsForHotel(Integer hotelId) {
+        List<Object[]> resultList;
+//        try {
+          eManager = emf.createEntityManager();
+          Query q = eManager.createNamedQuery("findAvgRoomsBookingAndCountClientsForHotel");
+          q.setParameter("hotelId", hotelId);
+          resultList = q.getResultList();
+          eManager.close();
+          emf.close();
+//        }
+//        catch(RuntimeException e) {
+//            if (eTransaction.isActive())
+//                eTransaction.rollback();
+//            throw e;
+//        }
+        return resultList;
+    }
 }
