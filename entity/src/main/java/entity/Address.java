@@ -40,8 +40,7 @@ public class Address {
     public Address() {
     }
     
-    public Address(Integer id, String city, String street, Integer houseNumber, Integer roomNumber, 
-            Set<Client> clients) {
+    public Address(Integer id, String city, String street, Integer houseNumber, Integer roomNumber) {
         this.id = id;
         this.city = city;
         this.street = street;

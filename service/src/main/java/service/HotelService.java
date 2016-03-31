@@ -2,38 +2,54 @@ package service;
 
 import java.util.List;
 
-import dao.DAOFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import dao.HotelDAO;
 import entity.Hotel;
 
+@Service
 public class HotelService {
 
-	public void addHotel(Hotel c) {
-		DAOFactory.getInstance().getHotelDAO().addElement(c);
-	}
-	
-	public void updateHotel(Hotel c) {
-		DAOFactory.getInstance().getHotelDAO().updateElement(c);
-	}
-	
-	public Hotel getHotelById(Integer hotelId) {
-		return DAOFactory.getInstance().getHotelDAO()
-				.getElementByID(hotelId);
-	}
-	
-	public List<Hotel> getAllHotels() {
-		return DAOFactory.getInstance().getHotelDAO()
-				.getAllElements();
-	}
-	
-	public void deleteHotel(Hotel c) {
-		DAOFactory.getInstance().getHotelDAO().deleteElement(c);
-	}
-	
-    public List<Integer> findAllHotels(Integer cityId) {
-        return DAOFactory.getInstance().getHotelDAO().findAllRoomsInHotelsByCityId(cityId);
+    @Autowired
+    private HotelDAO hotelDao;
+    
+    public HotelService() {
     }
     
-    public List<Object[]> findInfoAboutHotels(Integer hotelId) {
-        return DAOFactory.getInstance().getHotelDAO().findAvgRoomsBookingAndCountClientsForHotel(hotelId);
+    @Transactional
+    public void addHotel(Hotel hotel) {
+        hotelDao.addElement(hotel);
+    }
+    
+    @Transactional
+    public void updateHotel(Hotel hotel) {
+        hotelDao.updateElement(hotel);
+    }
+    
+    @Transactional
+    public Hotel getHotelById(Long hotelId) {
+        return hotelDao.getElementByID(hotelId);
+    }
+    
+    @Transactional
+    public List<Hotel> getAllHotels() {
+        return hotelDao.getAllElements();
+    }
+    
+    @Transactional
+    public void deleteHotel(Hotel hotel) {
+        hotelDao.deleteElement(hotel);
+    }
+	
+    @Transactional
+    public List<Integer> findAllHotels(Long cityId) {
+        return hotelDao.findAllRoomsInHotelsByCityId(cityId);
+    }
+    
+    @Transactional
+    public List<Object[]> findInfoAboutHotels(Long hotelId) {
+        return hotelDao.findAvgRoomsBookingAndCountClientsForHotel(hotelId);
     }
 }
