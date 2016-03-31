@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import dao.ClientDAO;
+import dao.impl.ClientDAOImpl;
 import entity.Client;
 
 @Service
@@ -16,6 +17,7 @@ public class ClientService {
     private ClientDAO clientDao;
     
     public ClientService() {
+        this.clientDao = new ClientDAOImpl();
     }
     
     @Transactional
@@ -43,8 +45,7 @@ public class ClientService {
         clientDao.deleteElement(client);
     }
     
-    @Transactional
-    public List<String> findAllCountriesClietnVisited(Integer clientId) {
+    public List<String> findAllCountriesClientVisited(Integer clientId) {
         return clientDao.getAllCountriesClientVisited(clientId);
     }
 

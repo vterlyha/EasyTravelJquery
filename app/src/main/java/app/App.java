@@ -42,8 +42,8 @@ public class App {
 //        BookingService bs2 = new BookingService();
 //        System.out.println(bs2.findAllVisas(1));
 //        
-//        ClientService clientService = new ClientService();
-//        System.out.println(clientService.findAllCountriesClietnVisited(1));
+        ClientService clientService = new ClientService();
+        System.out.println(clientService.findAllCountriesClientVisited(1));
 //        
 //        HotelService hs2 = new HotelService();
 //        List <Object[]> list = hs2.findInfoAboutHotels(2);
