@@ -16,7 +16,7 @@ public class BookingDAOImpl extends ElementDAOImpl<Booking, Long> implements Boo
     }
     
     @SuppressWarnings("unchecked")
-    public List<Integer> findAllBookedRoomsInHotelsByCityId(Integer cityId) {
+    public List<Integer> findAllBookedRoomsInHotelsByCityId(Long cityId) {
           Query q = getEntityManager().createNamedQuery("findAllBookedRoomsInHotelsByCityId");
           q.setParameter("cityId", cityId);
           List<Integer> resultList = q.getResultList();
@@ -24,7 +24,7 @@ public class BookingDAOImpl extends ElementDAOImpl<Booking, Long> implements Boo
     }
     
     @SuppressWarnings("unchecked")
-    public List<Integer> findAllGivenVisasInOneCountry(Integer countryId) {
+    public List<Integer> findAllGivenVisasInOneCountry(Long countryId) {
           Query q = getEntityManager().createNamedQuery("findAllGivenVisasInOneCountry");
           q.setParameter("countryId", countryId);
           List<Integer> resultList = q.getResultList();

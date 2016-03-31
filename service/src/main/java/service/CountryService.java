@@ -2,31 +2,45 @@ package service;
 
 import java.util.List;
 
-import dao.DAOFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import dao.CountryDAO;
 import entity.Country;
 
+@Service
 public class CountryService {
 	
-	public void addCountry(Country c) {
-		DAOFactory.getInstance().getCountryDAO().addElement(c);
-	}
-	
-	public void updateCountry(Country c) {
-		DAOFactory.getInstance().getCountryDAO().updateElement(c);
-	}
-	
-	public Country getCountryById(Integer countryId) {
-		return DAOFactory.getInstance().getCountryDAO()
-				.getElementByID(countryId);
-	}
-	
-	public List<Country> getAllCountries() {
-		return DAOFactory.getInstance().getCountryDAO()
-				.getAllElements();
-	}
-	
-	public void deleteCountry(Country c) {
-		DAOFactory.getInstance().getCountryDAO().deleteElement(c);
-	}
+    @Autowired
+    private CountryDAO countryDao;
+    
+    public CountryService() {
+    }
+    
+    @Transactional
+    public void addCountry(Country country) {
+        countryDao.addElement(country);
+    }
+    
+    @Transactional
+    public void updateCountry(Country country) {
+        countryDao.updateElement(country);
+    }
+    
+    @Transactional
+    public Country getCountryById(Long countryId) {
+        return countryDao.getElementByID(countryId);
+    }
+    
+    @Transactional
+    public List<Country> getAllCountries() {
+        return countryDao.getAllElements();
+    }
+    
+    @Transactional
+    public void deleteCountry(Country country) {
+        countryDao.deleteElement(country);
+    }
 
 }

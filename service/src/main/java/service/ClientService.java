@@ -2,35 +2,50 @@ package service;
 
 import java.util.List;
 
-import dao.DAOFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import dao.ClientDAO;
 import entity.Client;
 
+@Service
 public class ClientService {
     
+    @Autowired
+    private ClientDAO clientDao;
+    
+    public ClientService() {
+    }
+    
+    @Transactional
     public void addClient(Client client) {
-        DAOFactory.getInstance().getClientDAO().addElement(client);
+        clientDao.addElement(client);
     }
     
+    @Transactional
     public void updateClient(Client client) {
-        DAOFactory.getInstance().getClientDAO().updateElement(client);
+        clientDao.updateElement(client);
     }
     
-    public Client getClientById(Integer clientId) {
-        return DAOFactory.getInstance().getClientDAO()
-                .getElementByID(clientId);
+    @Transactional
+    public Client getClientById(Long clientId) {
+        return clientDao.getElementByID(clientId);
     }
     
+    @Transactional
     public List<Client> getAllClients() {
-        return DAOFactory.getInstance().getClientDAO()
-                .getAllElements();
+        return clientDao.getAllElements();
     }
     
-    public void deleteClient(Client client) {
-        DAOFactory.getInstance().getClientDAO().deleteElement(client);
+    @Transactional
+    public void deleteBooking(Client client) {
+        clientDao.deleteElement(client);
     }
     
+    @Transactional
     public List<String> findAllCountriesClietnVisited(Integer clientId) {
-        return DAOFactory.getInstance().getClientDAO().getAllCountriesClientVisited(clientId);
+        return clientDao.getAllCountriesClientVisited(clientId);
     }
 
 }

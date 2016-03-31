@@ -2,34 +2,49 @@ package service;
 
 import java.util.List;
 
-import dao.DAOFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import dao.CityDAO;
 import entity.City;
 
+@Service
 public class CityService {
 
-	public void addCity(City c) {
-		DAOFactory.getInstance().getCityDAO().addElement(c);
-	}
+    @Autowired
+    private CityDAO cityDao;
+    
+    public CityService() {
+    }
+    
+    @Transactional
+    public void addCity(City city) {
+        cityDao.addElement(city);
+    }
+    
+    @Transactional
+    public void updateCity(City city) {
+        cityDao.updateElement(city);
+    }
+    
+    @Transactional
+    public City getCityById(Long cityId) {
+        return cityDao.getElementByID(cityId);
+    }
+    
+    @Transactional
+    public List<City> getAllCities() {
+        return cityDao.getAllElements();
+    }
+    
+    @Transactional
+    public void deleteCity(City city) {
+        cityDao.deleteElement(city);
+    }
 	
-	public void updateCity(City c) {
-		DAOFactory.getInstance().getCityDAO().updateElement(c);
-	}
-	
-	public City getCityById(Integer cityId) {
-		return DAOFactory.getInstance().getCityDAO()
-				.getElementByID(cityId);
-	}
-	
-	public List<City> getAllCities() {
-		return DAOFactory.getInstance().getCityDAO()
-				.getAllElements();
-	}
-	
-	public void deleteCity(City c) {
-		DAOFactory.getInstance().getCityDAO().deleteElement(c);
-	}
-	
+    @Transactional
 	public List<String> findAllHotels(String cityName) {
-        return DAOFactory.getInstance().getCityDAO().findAllHotelsByCityName(cityName);
+        return cityDao.findAllHotelsByCityName(cityName);
     }
 }

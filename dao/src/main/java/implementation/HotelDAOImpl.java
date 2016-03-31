@@ -64,7 +64,7 @@ public class HotelDAOImpl extends ElementDAOImpl<Hotel, Long> implements HotelDA
 //	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Integer> findAllRoomsInHotelsByCityId(Integer cityId) {
+	public List<Integer> findAllRoomsInHotelsByCityId(Long cityId) {
           Query q = getEntityManager().createNamedQuery("findAllRoomsInHotelsByCityId");
           q.setParameter("cityId", cityId);
           List<Integer> resultList = q.getResultList();
@@ -72,7 +72,7 @@ public class HotelDAOImpl extends ElementDAOImpl<Hotel, Long> implements HotelDA
     }
 	
 	@SuppressWarnings("unchecked")
-	public List<Object[]> findAvgRoomsBookingAndCountClientsForHotel(Integer hotelId) {
+	public List<Object[]> findAvgRoomsBookingAndCountClientsForHotel(Long hotelId) {
           Query q = getEntityManager().createNamedQuery("findAvgRoomsBookingAndCountClientsForHotel");
           q.setParameter("hotelId", hotelId);
           List<Object[]> resultList = q.getResultList();
