@@ -2,9 +2,6 @@ package dao;
 
 import entity.Country;
 
-public class CountryDAO extends ElementDAOImpl<Country> {
+public interface CountryDAO extends ElementDAO<Country, Long> {
 
-	public CountryDAO() {
-		super(Country.class);
-	}
 }

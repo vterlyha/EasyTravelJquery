@@ -6,13 +6,21 @@
 		<artifactId>EasyTour</artifactId>
 		<version>1.0</version>
 	</parent>
-	<artifactId>dao</artifactId>
+	<artifactId>webapps</artifactId>
 	<dependencies>
+		<!-- service module of jmuseum application -->
 		<dependency>
 			<groupId>com.java.tour_firm</groupId>
-			<artifactId>entity</artifactId>
+			<artifactId>service</artifactId>
 			<version>1.0</version>
 		</dependency>
+
+ 		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+
 		<!-- spring beans -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -25,24 +33,24 @@
 			<artifactId>spring-context</artifactId>
 		</dependency>
 
+		<!-- javax servlet-api -->
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.9</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>5.1.0.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>5.1.0.Final</version>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>2.3.1</version>
 		</dependency>
 	</dependencies>
 </project>

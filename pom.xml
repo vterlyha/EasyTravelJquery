@@ -22,5 +22,18 @@
 		<module>service</module>
 		<module>app</module>
 		<module>persistence</module>
+		<module>webapps</module>
 	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<type>pom</type>
+				<version>4.2.5.RELEASE</version>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>
