@@ -15,8 +15,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@NamedQuery(name="findAllHotelsByCityName", query="SELECT hotels.name FROM Hotel hotels, City cities "
-        + "WHERE cities.id = hotels.city.id and cities.name =:cityName")
+@NamedQueries({
+	@NamedQuery(name="findAllHotelsByCityName", 
+			query="SELECT hotels.name FROM Hotel hotels, City cities "
+	        + "WHERE cities.id = hotels.city.id and cities.name =:cityName"),
+	@NamedQuery(name = "City.getCityByCountryId", 
+			query = "select city.name "
+			+ "from City city "
+			+ "join city.country ctr "
+			+ "where city.id = :countryId ")
+})
+
 @Table(name = "cities")
 public class City {
 	
