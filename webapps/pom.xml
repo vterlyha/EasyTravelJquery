@@ -8,7 +8,7 @@
 	</parent>
 	<artifactId>webapps</artifactId>
 	<dependencies>
-		<!-- service module of jmuseum application -->
+
 		<dependency>
 			<groupId>com.java.tour_firm</groupId>
 			<artifactId>service</artifactId>
