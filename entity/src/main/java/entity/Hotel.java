@@ -25,7 +25,7 @@ import javax.persistence.Table;
             + "avg(bookings.dateTo - bookings.dateFrom) as AvgClientsStaying "
             + "from Booking bookings where bookings.hotel.id=:hotelId"),
     
-    @NamedQuery(name = "Hotel.getRoomQuantity", 
+    @NamedQuery(name = "getHotelRoomQuantity", 
 			query = "select hot.roomQuantity "
 			+ "from Hotel hot "
 			+ "where hot.id = :hotId ")

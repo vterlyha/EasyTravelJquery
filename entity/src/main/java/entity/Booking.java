@@ -29,14 +29,14 @@ import javax.persistence.Table;
     @NamedQuery(name="findAllGivenVisasInOneCountry", 
     		query="select count(bookings.client.id) "
             + "from Booking bookings where bookings.country.id=:countryId"),
-    @NamedQuery(name = "Booking.countBookedRooms",
+    @NamedQuery(name = "countBookedRooms",
 			query = "select sum(book.roomQuantity) "
 			+ "from Booking book "
 			+ "join book.hotel hot "
 			+ "where book.dateFrom >= :dateF and "
 			+ "book.dateTo <= :dateT and "
 			+ "hot.id = :hotId "),
-    @NamedQuery(name = "Booking.getBookingsOfPeriod",
+    @NamedQuery(name = "getBookingsOfPeriod",
 			query = "select book "
 			+ "from Booking book "
 			+ "where book.dateFrom >= :dateF and "

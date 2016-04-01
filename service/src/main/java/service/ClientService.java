@@ -45,8 +45,14 @@ public class ClientService {
         clientDao.deleteElement(client);
     }
     
+    @Transactional
     public List<String> findAllCountriesClientVisited(Integer clientId) {
         return clientDao.getAllCountriesClientVisited(clientId);
+    }
+    
+    @Transactional
+    public List<Integer> countVisas(Long clientId) {
+    	return clientDao.countVisas(clientId);
     }
 
 }

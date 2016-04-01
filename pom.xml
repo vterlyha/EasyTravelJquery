@@ -21,10 +21,8 @@
 		<module>dao</module>
 		<module>service</module>
 		<module>app</module>
-		
 		<module>webapps</module>
 	</modules>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>

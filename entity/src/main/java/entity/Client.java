@@ -24,7 +24,7 @@ import javax.persistence.Table;
             + "from Country countries "
             + "right join Booking bookings on (countries.id = bookings.country.id) "
             + "where bookings.client.id=:clientId"),
-    @NamedQuery(name = "Client.countVisas",
+    @NamedQuery(name = "countVisas",
     		query = "select count(ctr.id) "
     		+ "from Booking book "
     		+ "join book.client cl "

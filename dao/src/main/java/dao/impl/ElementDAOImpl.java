@@ -51,6 +51,7 @@ public abstract class ElementDAOImpl<E, V> implements ElementDAO<E, V> {
         return elementEList;
     }
 
+	@Transactional
 	public void deleteElement(E element) {
 	    eManager.remove(element);
 	}

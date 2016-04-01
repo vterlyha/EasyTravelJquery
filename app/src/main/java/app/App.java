@@ -11,6 +11,7 @@ import service.CountryService;
 import service.HotelService;
 
 public class App {
+	
     public static void main( String[] args ) {
 //    	CountryService countryS = new CountryService();
 //        countryS.addCountry(new Country(0, "Thailand"));
