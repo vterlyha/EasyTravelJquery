@@ -1,5 +1,6 @@
 package service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,15 @@ public class BookingService {
     @Transactional
     public List<Integer> findAllVisas(Long countryId) {
         return bookingDao.findAllGivenVisasInOneCountry(countryId);
+    }
+    
+    @Transactional
+    public List<Integer> countBookedRooms(Date dateF, Date dateT, Long hotId) {
+    	return bookingDao.countBookedRooms(dateF, dateT, hotId);
+    }
+    
+    @Transactional
+    public List<Booking> getBookingsOfPeriod(Date dateF, Date dateT) {
+    	return bookingDao.getBookingsOfPeriod(dateF, dateT);
     }
 }

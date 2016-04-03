@@ -1,6 +1,6 @@
 package dao.impl;
 
-
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -17,18 +17,37 @@ public class BookingDAOImpl extends ElementDAOImpl<Booking, Long> implements Boo
     
     @SuppressWarnings("unchecked")
     public List<Integer> findAllBookedRoomsInHotelsByCityId(Long cityId) {
-          Query q = getEntityManager().createNamedQuery("findAllBookedRoomsInHotelsByCityId");
-          q.setParameter("cityId", cityId);
-          List<Integer> resultList = q.getResultList();
+          Query findBookedRoomsQuery = getEntityManager().createNamedQuery("findAllBookedRoomsInHotelsByCityId");
+          findBookedRoomsQuery.setParameter("cityId", cityId);
+          List<Integer> resultList = findBookedRoomsQuery.getResultList();
         return resultList;
     }
     
     @SuppressWarnings("unchecked")
     public List<Integer> findAllGivenVisasInOneCountry(Long countryId) {
-          Query q = getEntityManager().createNamedQuery("findAllGivenVisasInOneCountry");
-          q.setParameter("countryId", countryId);
-          List<Integer> resultList = q.getResultList();
+          Query findAllVisasQuery = getEntityManager().createNamedQuery("findAllGivenVisasInOneCountry");
+          findAllVisasQuery.setParameter("countryId", countryId);
+          List<Integer> resultList = findAllVisasQuery.getResultList();
           return resultList;
     }
+
+    @SuppressWarnings("unchecked")
+	public List<Integer> countBookedRooms(Date dateF, Date dateT, Long hotId) {
+		Query countRooms = getEntityManager().createNamedQuery("countBookedRooms");
+		countRooms.setParameter("dateF", dateF);
+		countRooms.setParameter("dateT", dateT);
+		countRooms.setParameter("hotId", hotId);
+		List<Integer> resultList = countRooms.getResultList();
+		return resultList;
+	}
+
+    @SuppressWarnings("unchecked")
+	public List<Booking> getBookingsOfPeriod(Date dateF, Date dateT) {
+		Query getBookings = getEntityManager().createNamedQuery("getBookingsOfPeriod");
+		getBookings.setParameter("dateF", dateF);
+		getBookings.setParameter("dateT", dateT);
+		List<Booking> resultList = getBookings.getResultList();
+		return resultList;
+	}
 
 }

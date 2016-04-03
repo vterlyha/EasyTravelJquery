@@ -18,15 +18,29 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name="findAllBookedRoomsInHotelsByCityId", query="select hotels.roomQuantity, sum(bookings.roomQuantity) "
+    @NamedQuery(name="findAllBookedRoomsInHotelsByCityId", 
+    		query="select hotels.roomQuantity, sum(bookings.roomQuantity) "
             + "from Booking bookings Right Join "
             + "Hotel hotels "
             + "on (bookings.hotel.id = hotels.id) "
             + "where bookings.city.id=:cityId "
             + "group by bookings.city.id, hotels.roomQuantity"),
     
-    @NamedQuery(name="findAllGivenVisasInOneCountry", query="select count(bookings.client.id) "
-            + "from Booking bookings where bookings.country.id=:countryId")
+    @NamedQuery(name="findAllGivenVisasInOneCountry", 
+    		query="select count(bookings.client.id) "
+            + "from Booking bookings where bookings.country.id=:countryId"),
+    @NamedQuery(name = "countBookedRooms",
+			query = "select sum(book.roomQuantity) "
+			+ "from Booking book "
+			+ "join book.hotel hot "
+			+ "where book.dateFrom >= :dateF and "
+			+ "book.dateTo <= :dateT and "
+			+ "hot.id = :hotId "),
+    @NamedQuery(name = "getBookingsOfPeriod",
+			query = "select book "
+			+ "from Booking book "
+			+ "where book.dateFrom >= :dateF and "
+			+ "book.dateTo <= :dateT")
     })
 @Table (name = "bookings")
 public class Booking {

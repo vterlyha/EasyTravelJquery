@@ -19,10 +19,17 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name="getAllCountriesClientVisited", query="select countries.name "
+    @NamedQuery(name="getAllCountriesClientVisited", 
+    		query="select countries.name "
             + "from Country countries "
             + "right join Booking bookings on (countries.id = bookings.country.id) "
-            + "where bookings.client.id=:clientId")
+            + "where bookings.client.id=:clientId"),
+    @NamedQuery(name = "countVisas",
+    		query = "select count(ctr.id) "
+    		+ "from Booking book "
+    		+ "join book.client cl "
+    		+ "join book.country ctr "
+    		+ "where cl.id = :clientId ")
     })
 @Table (name = "clients")
 public class Client {

@@ -16,12 +16,19 @@ import javax.persistence.Table;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name="findAllRoomsInHotelsByCityId", query="select hotels.roomQuantity "
+    @NamedQuery(name="findAllRoomsInHotelsByCityId", 
+    		query="select hotels.roomQuantity "
             + "from Hotel hotels where hotels.city.id=:cityId"),
     
-    @NamedQuery(name="findAvgRoomsBookingAndCountClientsForHotel", query="select count(bookings.client.id), "
+    @NamedQuery(name="findAvgRoomsBookingAndCountClientsForHotel", 
+    		query="select count(bookings.client.id), "
             + "avg(bookings.dateTo - bookings.dateFrom) as AvgClientsStaying "
-            + "from Booking bookings where bookings.hotel.id=:hotelId")
+            + "from Booking bookings where bookings.hotel.id=:hotelId"),
+    
+    @NamedQuery(name = "getHotelRoomQuantity", 
+			query = "select hot.roomQuantity "
+			+ "from Hotel hot "
+			+ "where hot.id = :hotId ")
 })
 @Table(name = "hotels")
 public class Hotel {

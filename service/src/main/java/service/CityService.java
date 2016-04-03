@@ -47,4 +47,9 @@ public class CityService {
 	public List<String> findAllHotels(String cityName) {
         return cityDao.findAllHotelsByCityName(cityName);
     }
+    
+    @Transactional
+    public List<String> getCityByCountryId(Long countryId) {
+    	return cityDao.getCityByCountryId(countryId);
+    }
 }

@@ -52,4 +52,9 @@ public class HotelService {
     public List<Object[]> findInfoAboutHotels(Long hotelId) {
         return hotelDao.findAvgRoomsBookingAndCountClientsForHotel(hotelId);
     }
+    
+    @Transactional
+    public List<Integer> getHotelRoomQuantity(Long hotId) {
+    	return hotelDao.getHotelRoomQuantity(hotId);
+    }
 }
