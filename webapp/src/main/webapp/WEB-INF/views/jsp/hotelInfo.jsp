@@ -6,9 +6,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Hotel info</title>
 </head>
 <body>
-
+	<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
+	<div class="UserDivs" id="countryDiv">
+		<select class="UserSelect" id="countrySelect">
+			<c:forEach items="${countries}" var="country">
+				<option>${country.name}</option>
+			</c:forEach>
+		</select>
+	</div>
+	<div class="UserDivs" id="cityDiv">
+		<select class="UserSelect" id="citySelect">
+		</select>
+	</div>
+	<div class="UserDivs" id="hotelDiv">
+		<select class="UserSelect" id="hotelSelect">
+		</select>
+	</div>
+	
+	
 </body>
 </html>

@@ -1,13 +1,16 @@
-package dao.impl;
+package daoImpl;
 
 import java.util.List;
 
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+
 import dao.HotelDAO;
 
 import entity.Hotel;
 
+@Repository
 public class HotelDAOImpl extends ElementDAOImpl<Hotel, Long> implements HotelDAO {
 
 	public HotelDAOImpl() {

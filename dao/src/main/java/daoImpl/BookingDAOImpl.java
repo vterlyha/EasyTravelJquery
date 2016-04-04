@@ -1,13 +1,16 @@
-package dao.impl;
+package daoImpl;
 
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+
 import dao.BookingDAO;
 import entity.Booking;
 
+@Repository
 public class BookingDAOImpl extends ElementDAOImpl<Booking, Long> implements BookingDAO {
 
     
