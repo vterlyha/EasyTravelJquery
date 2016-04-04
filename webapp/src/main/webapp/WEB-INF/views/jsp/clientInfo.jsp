@@ -9,6 +9,7 @@
 <title>Client info</title>
 </head>
 <body>
-	<h1>Hello world</h1>
+	<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
+		<h1>Hello from client info</h1>	
 </body>
 </html>
