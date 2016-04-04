@@ -1,12 +1,15 @@
-package dao.impl;
+package daoImpl;
 
 import java.util.List;
 
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+
 import dao.CityDAO;
 import entity.City;
 
+@Repository
 public class CityDAOImpl extends ElementDAOImpl<City, Long> implements CityDAO {
 
 	public CityDAOImpl() {

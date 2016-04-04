@@ -1,12 +1,15 @@
-package dao.impl;
+package daoImpl;
 
 import java.util.List;
 
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+
 import dao.ClientDAO;
 import entity.Client;
 
+@Repository
 public class ClientDAOImpl extends ElementDAOImpl<Client, Long> implements ClientDAO {
     
     public ClientDAOImpl() {
