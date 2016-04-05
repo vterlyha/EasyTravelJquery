@@ -11,14 +11,14 @@ import dao.HotelDAO;
 import entity.Hotel;
 
 @Repository
-public class HotelDAOImpl extends ElementDAOImpl<Hotel, Long> implements HotelDAO {
+public class HotelDAOImpl extends ElementDAOImpl<Hotel, Integer> implements HotelDAO {
 
 	public HotelDAOImpl() {
 		super(Hotel.class);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public List<Integer> findAllRoomsInHotelsByCityId(Long cityId) {
+	public List<Integer> findAllRoomsInHotelsByCityId(Integer cityId) {
           Query findAllRooms = getEntityManager().createNamedQuery("findAllRoomsInHotelsByCityId");
           findAllRooms.setParameter("cityId", cityId);
           List<Integer> resultList = findAllRooms.getResultList();
@@ -26,7 +26,7 @@ public class HotelDAOImpl extends ElementDAOImpl<Hotel, Long> implements HotelDA
     }
 	
 	@SuppressWarnings("unchecked")
-	public List<Object[]> findAvgRoomsBookingAndCountClientsForHotel(Long hotelId) {
+	public List<Object[]> findAvgRoomsBookingAndCountClientsForHotel(Integer hotelId) {
         Query findRoomsBooking = getEntityManager().createNamedQuery("findAvgRoomsBookingAndCountClientsForHotel");
         findRoomsBooking.setParameter("hotelId", hotelId);
         List<Object[]> resultList = findRoomsBooking.getResultList();
@@ -34,9 +34,9 @@ public class HotelDAOImpl extends ElementDAOImpl<Hotel, Long> implements HotelDA
     }
 
 	@SuppressWarnings("unchecked")
-	public List<Integer> getHotelRoomQuantity(Long hotId) {
+	public List<Integer> getHotelRoomQuantity(Integer hotelId) {
 		Query getRoomQuantity = getEntityManager().createNamedQuery("getHotelRoomQuantity");
-		getRoomQuantity.setParameter("hotId", hotId);
+		getRoomQuantity.setParameter("hotelId", hotelId);
         List<Integer> resultList = getRoomQuantity.getResultList();
         return resultList;
 	}

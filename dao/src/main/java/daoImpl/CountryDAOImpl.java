@@ -6,7 +6,7 @@ import dao.CountryDAO;
 import entity.Country;
 
 @Repository
-public class CountryDAOImpl extends ElementDAOImpl<Country, Long> implements CountryDAO {
+public class CountryDAOImpl extends ElementDAOImpl<Country, Integer> implements CountryDAO {
 
 	public CountryDAOImpl() {
 		super(Country.class);

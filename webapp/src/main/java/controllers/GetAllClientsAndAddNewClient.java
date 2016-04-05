@@ -13,7 +13,6 @@ import entity.Client;
 import service.ClientService;
 
 @Controller
-@RequestMapping(value = "/pages")
 public class GetAllClientsAndAddNewClient {
 	
 	@Autowired

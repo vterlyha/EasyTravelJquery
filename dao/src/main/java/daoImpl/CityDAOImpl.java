@@ -10,7 +10,7 @@ import dao.CityDAO;
 import entity.City;
 
 @Repository
-public class CityDAOImpl extends ElementDAOImpl<City, Long> implements CityDAO {
+public class CityDAOImpl extends ElementDAOImpl<City, Integer> implements CityDAO {
 
 	public CityDAOImpl() {
 		super(City.class);
@@ -26,7 +26,7 @@ public class CityDAOImpl extends ElementDAOImpl<City, Long> implements CityDAO {
     }
 
 	@SuppressWarnings("unchecked")
-	public List<String> getCityByCountryId(Long countryId) {
+	public List<String> getCityByCountryId(Integer countryId) {
 		
 		Query getCities = getEntityManager().createNamedQuery("getCityByCountryId");
         getCities.setParameter("countryId", countryId);

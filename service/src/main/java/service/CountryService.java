@@ -29,7 +29,7 @@ public class CountryService {
     }
     
     @Transactional
-    public Country getCountryById(Long countryId) {
+    public Country getCountryById(Integer countryId) {
         return countryDao.getElementByID(countryId);
     }
     

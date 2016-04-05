@@ -29,7 +29,7 @@ public class HotelService {
     }
     
     @Transactional
-    public Hotel getHotelById(Long hotelId) {
+    public Hotel getHotelById(Integer hotelId) {
         return hotelDao.getElementByID(hotelId);
     }
     
@@ -44,17 +44,17 @@ public class HotelService {
     }
 	
     @Transactional
-    public List<Integer> findAllHotels(Long cityId) {
+    public List<Integer> findAllHotels(Integer cityId) {
         return hotelDao.findAllRoomsInHotelsByCityId(cityId);
     }
     
     @Transactional
-    public List<Object[]> findInfoAboutHotels(Long hotelId) {
+    public List<Object[]> findInfoAboutHotels(Integer hotelId) {
         return hotelDao.findAvgRoomsBookingAndCountClientsForHotel(hotelId);
     }
     
     @Transactional
-    public List<Integer> getHotelRoomQuantity(Long hotId) {
+    public List<Integer> getHotelRoomQuantity(Integer hotId) {
     	return hotelDao.getHotelRoomQuantity(hotId);
     }
 }

@@ -10,7 +10,7 @@ import dao.ClientDAO;
 import entity.Client;
 
 @Repository
-public class ClientDAOImpl extends ElementDAOImpl<Client, Long> implements ClientDAO {
+public class ClientDAOImpl extends ElementDAOImpl<Client, Integer> implements ClientDAO {
     
     public ClientDAOImpl() {
         super(Client.class);

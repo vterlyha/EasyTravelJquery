@@ -2,6 +2,6 @@ package dao;
 
 import entity.Address;
 
-public interface AddressDAO extends ElementDAO<Address, Long> {
+public interface AddressDAO extends ElementDAO<Address, Integer> {
 
 }

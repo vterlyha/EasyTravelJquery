@@ -5,10 +5,10 @@ import java.util.Date;
 
 import entity.Booking;
 
-public interface BookingDAO extends ElementDAO<Booking, Long> {
+public interface BookingDAO extends ElementDAO<Booking, Integer> {
     
-    List<Integer> findAllBookedRoomsInHotelsByCityId(Long cityId);
-    List<Integer> findAllGivenVisasInOneCountry(Long countryId); 
-    List<Integer> countBookedRooms(Date dateF, Date dateT, Long hotId);
+    List<Integer> findAllBookedRoomsInHotelsByCityId(Integer cityId);
+    List<Integer> findAllGivenVisasInOneCountry(Integer countryId); 
+    List<Integer> countBookedRooms(Date dateF, Date dateT, Integer hotelId);
     List<Booking> getBookingsOfPeriod(Date dateF, Date dateT);
 }

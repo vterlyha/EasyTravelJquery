@@ -29,7 +29,7 @@ public class CityService {
     }
     
     @Transactional
-    public City getCityById(Long cityId) {
+    public City getCityById(Integer cityId) {
         return cityDao.getElementByID(cityId);
     }
     
@@ -49,7 +49,7 @@ public class CityService {
     }
     
     @Transactional
-    public List<String> getCityByCountryId(Long countryId) {
+    public List<String> getCityByCountryId(Integer countryId) {
     	return cityDao.getCityByCountryId(countryId);
     }
 }

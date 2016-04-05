@@ -28,7 +28,7 @@ public class AddressService {
     }
     
     @Transactional
-    public Address getAddressById(Long addressId) {
+    public Address getAddressById(Integer addressId) {
         return addressDao.getElementByID(addressId);
     }
     

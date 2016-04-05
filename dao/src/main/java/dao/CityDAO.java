@@ -4,7 +4,7 @@ import java.util.List;
 
 import entity.City;
 
-public interface CityDAO extends ElementDAO<City, Long> {
+public interface CityDAO extends ElementDAO<City, Integer> {
     List<String> findAllHotelsByCityName(String cityName);
-    List<String> getCityByCountryId(Long countryId);
+    List<String> getCityByCountryId(Integer countryId);
 }
