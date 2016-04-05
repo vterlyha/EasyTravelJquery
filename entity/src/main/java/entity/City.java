@@ -3,8 +3,10 @@ package entity;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,14 +40,14 @@ public class City {
 	@Column(name = "name")
 	private String name;
 	
-	@ManyToOne(optional=false, targetEntity=Country.class)
+	@ManyToOne(fetch=FetchType.LAZY, optional=false, targetEntity=Country.class, cascade={CascadeType.ALL})
 	@JoinColumn(name="countryId")
 	private Country country;
 	
-	@OneToMany(mappedBy="city")
+	@OneToMany(mappedBy="city", fetch=FetchType.LAZY)
 	private Set<Hotel> hotels;
 	
-	@OneToMany(mappedBy="city")
+	@OneToMany(mappedBy="city", fetch=FetchType.LAZY)
 	private Set<Booking> bookings;
 
 	public City() {}
