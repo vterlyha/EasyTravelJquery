@@ -37,6 +37,7 @@
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
+	<tx:annotation-driven/>
 
 	<bean id="persistenceExceptionTranslationPostProcessor"
 		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
