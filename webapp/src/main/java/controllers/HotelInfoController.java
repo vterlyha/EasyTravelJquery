@@ -19,7 +19,6 @@ import service.CountryService;
 import service.HotelService;
 
 @Controller
-@RequestMapping(value="/pages")
 public class HotelInfoController {
 	
 	@Autowired
