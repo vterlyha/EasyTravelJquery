@@ -26,7 +26,7 @@ public class ClientDAOImpl extends ElementDAOImpl<Client, Long> implements Clien
     }
 
     @SuppressWarnings("unchecked")
-	public List<Integer> countVisas(Long clientId) {
+	public List<Integer> countVisas(Integer clientId) {
 		
 		Query countVisas = getEntityManager().createNamedQuery("countVisas");
 		countVisas.setParameter("clientId", clientId);

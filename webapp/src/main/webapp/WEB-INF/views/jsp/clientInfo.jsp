@@ -18,7 +18,7 @@
 				<table class="data">
 					<c:forEach items="${clientList}" var="client">
 						<tr>
-							<td>${client.lastName}, ${client.firstName}</td>
+							<td><a href="clientVisasInfo.html?clientId=${client.id}">${client.lastName}, ${client.firstName}</a></td>
 							<td>${client.email}</td>
 							<td>${client.phoneNumber}</td>
 						</tr>
