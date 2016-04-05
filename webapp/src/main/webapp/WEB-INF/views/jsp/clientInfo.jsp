@@ -38,15 +38,15 @@
 			</tr>
 			<tr>
 				<td>Email</td>
-				<td><form:input path="email" /></td>>
+				<td><form:input path="email" /></td>
 			</tr>
 			<tr>
 				<td>PhoneNumber</td>
-				<td><form:input path="phoneNumber" /></td>>
+				<td><form:input path="phoneNumber" /></td>
 			</tr>
 			<tr>
 				<td>Adress</td>
-				<td><form:input path="address.id" /></td>>
+				<td><form:input path="address.id" /></td>
 			</tr>
 			<tr>
 				<td colspan="2">

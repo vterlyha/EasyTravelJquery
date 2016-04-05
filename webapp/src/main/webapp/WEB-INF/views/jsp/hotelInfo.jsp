@@ -11,32 +11,65 @@
 </head>
 <body>
 	<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
-	<form:form action="selectCity" method="GET" id="SelectDataForm">
-		<div class="UserDivs" id="countryDiv">
-			<select class="UserSelect" id="countrySelect" name="countryValue" onchange="submit()">
-				<option>--Countries--</option>
-				<c:forEach items="${countries}" var="country">
-					<option>${country.name}</option>
-				</c:forEach>
-			</select>
-		</div>
-		<input value="Submit countries" type="submit">
-		<div class="UserDivs" id="cityDiv">
-			<select class="UserSelect" id="citySelect" name="cityValue">
+	<%-- Displaying hotel data--%>
+	<table class="UserTable" id="hotelTable">
+		<tr>
+			<th>Number</th><th>Hotel</th><th>City</th><th>Country</th><th>Room quantity</th>
+		</tr>
+		<c:forEach items="${hotels }" var="hotel">
+			<tr>
+				<td>${hotel.id }</td>
+				<td>${hotel.name}</td>
+				<td>${hotel.city.name }</td>
+				<td>${hotel.city.country.name }</td>
+				<td>${hotel.roomQuantity }</td>
+			</tr>
+		</c:forEach>
+	</table>
+	<br/>
+	<%-- Adding new hotel--%>
+	<form:form action="insertHotel" method="POST">
+		<div class="UserDivs" id="addHotelDiv">
+			<h3>Add hotel</h3>
+			<p>Hotel name</p>
+			<input type="text" name="hotelName"/>
+			<p>Room quantity</p>
+			<input type="text" name="hotelRoomQuantity"/>
+			<p>City</p>
+			<select class="UserSelect" name="cityValue">
 				<option>--Cities--</option>
 				<c:forEach items="${cities}" var="city">
 					<option>${city.name}</option>
 				</c:forEach>
 			</select>
+			<input type="submit" value="Add hotel">
 		</div>
-		<input value="Submit cities" type="submit">
-		<div class="UserDivs" id="hotelDiv">
-			<select class="UserSelect" id="hotelSelect">
-				<option>--Hotels--</option>
-				<c:forEach items="${hotels}" var="hotel">
-					<option>${hotel.name}</option>
+	</form:form>
+	<br/>
+	<%-- Adding new country--%>
+	<form:form action="insertCountry" method="POST" >
+		<div class="UserDivs" id="addCountryDiv">
+			<h3>Add country</h3>
+			<p>Country name</p>
+			<input name="countryName" />
+			<p>Visa required</p>
+			<input type="checkbox" name="visaRequired" />
+			<input type="submit" value="Add country">
+		</div>
+	</form:form>
+	<%-- Adding new city --%>
+	<form:form action="insertCity" method="POST">
+		<div class="UserDivs" id="addCountryDiv">
+			<h3>Add city</h3>
+			<p>City name</p>
+			<input name="cityName" />
+			<p>Country</p>
+			<select class="UserSelect" name="countryValue">
+				<c:forEach items="${countries}" var="country">
+					<option>${country.name}</option>
 				</c:forEach>
 			</select>
+			<input type="submit" value="Add city">
 		</div>
 	</form:form>
 </body>

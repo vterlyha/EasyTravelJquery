@@ -55,10 +55,11 @@ public class Hotel {
 	
 	public Hotel(){}
 	
-	public Hotel(Integer id, String name, City city) {
+	public Hotel(Integer id, String name, City city, Integer roomQuantity) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.roomQuantity = roomQuantity;
 		this.city = city;
 	}
 
