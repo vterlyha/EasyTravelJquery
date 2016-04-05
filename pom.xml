@@ -21,8 +21,8 @@
 		<module>service</module>
 		
     <module>webapp</module>
-    <module>webapps</module>
-    <module>weba</module>
+    
+    
   </modules>
 	<dependencyManagement>
 		<dependencies>

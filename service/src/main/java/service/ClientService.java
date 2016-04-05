@@ -51,7 +51,7 @@ public class ClientService {
     }
     
     @Transactional
-    public List<Integer> countVisas(Long clientId) {
+    public List<Integer> countVisas(Integer clientId) {
     	return clientDao.countVisas(clientId);
     }
 
