@@ -22,6 +22,7 @@
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="<spring:url value="/pages/clientInfo"/>">Clients</a></li>
                 <li><a href="<spring:url value="/pages/hotelInfo"/>">Cities and hotels</a></li>
+                <li><a href="<spring:url value="/pages/bookings"/>">Bookings</a></li>
             </ul>
         </div>
       </nav>
