@@ -11,17 +11,21 @@
 </head>
 <body>
 <jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
-	<h1 class="HomePageTextElements" id="TourDestinationsHeader"> Countries client visited
-		</h1>
+	<h1 class="HomePageTextElements" id="TourDestinationsHeader"> 
+${neededClient.firstName} ${neededClient.lastName}
+
+	</h1>
 
 			<c:if test="${!empty countriesVisited}">
 				<table class="data">					
 					<tr>
+						<td>Countries client visited: </td>
 						<c:forEach items="${countriesVisited}" var="country">
 							<td>${country}</td>
 						</c:forEach>
 					</tr>
 					<tr>
+						<td>How many visas he already have: </td>
 						<c:forEach items="${countCountries}" var="count">
 							<td>${count}</td>
 						</c:forEach>

@@ -16,6 +16,15 @@
 
 			<c:if test="${!empty bookingList}">
 				<table class="data">
+					<tr>
+						<th>Date from</th>
+						<th>Date to</th>
+						<th>Country</th>
+						<th>City</th>
+						<th>Hotel</th>
+						<th>Client </th>
+						<th>Room quantity</th>
+					</tr>
 					<c:forEach items="${bookingList}" var="booking">
 						<tr>
 							<td>${booking.dateFrom}</td>
@@ -23,8 +32,7 @@
 							<td>${booking.country.name}</td>
 							<td>${booking.city.name}</td>
 							<td>${booking.hotel.name}</td>
-							<td>${booking.client.firstName}</td>
-							<td>${booking.client.lastName}</td>
+							<td>${booking.client.firstName} ${booking.client.lastName}</td>
 							<td>${booking.roomQuantity}</td>
 						</tr>
 					</c:forEach>

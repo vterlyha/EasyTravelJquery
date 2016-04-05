@@ -15,7 +15,6 @@ import service.CityService;
 import service.CountryService;
 
 @Controller
-@RequestMapping(value = "/pages")
 public class GetAllBookingsAndAddNewBooking {
 	
 	@Autowired

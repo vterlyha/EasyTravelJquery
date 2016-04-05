@@ -11,7 +11,7 @@ import dao.BookingDAO;
 import entity.Booking;
 
 @Repository
-public class BookingDAOImpl extends ElementDAOImpl<Booking, Long> implements BookingDAO {
+public class BookingDAOImpl extends ElementDAOImpl<Booking, Integer> implements BookingDAO {
 
     
     public BookingDAOImpl() {
@@ -19,7 +19,7 @@ public class BookingDAOImpl extends ElementDAOImpl<Booking, Long> implements Boo
     }
     
     @SuppressWarnings("unchecked")
-    public List<Integer> findAllBookedRoomsInHotelsByCityId(Long cityId) {
+    public List<Integer> findAllBookedRoomsInHotelsByCityId(Integer cityId) {
           Query findBookedRoomsQuery = getEntityManager().createNamedQuery("findAllBookedRoomsInHotelsByCityId");
           findBookedRoomsQuery.setParameter("cityId", cityId);
           List<Integer> resultList = findBookedRoomsQuery.getResultList();
@@ -27,7 +27,7 @@ public class BookingDAOImpl extends ElementDAOImpl<Booking, Long> implements Boo
     }
     
     @SuppressWarnings("unchecked")
-    public List<Integer> findAllGivenVisasInOneCountry(Long countryId) {
+    public List<Integer> findAllGivenVisasInOneCountry(Integer countryId) {
           Query findAllVisasQuery = getEntityManager().createNamedQuery("findAllGivenVisasInOneCountry");
           findAllVisasQuery.setParameter("countryId", countryId);
           List<Integer> resultList = findAllVisasQuery.getResultList();
@@ -35,11 +35,11 @@ public class BookingDAOImpl extends ElementDAOImpl<Booking, Long> implements Boo
     }
 
     @SuppressWarnings("unchecked")
-	public List<Integer> countBookedRooms(Date dateF, Date dateT, Long hotId) {
+	public List<Integer> countBookedRooms(Date dateF, Date dateT, Integer hotelId) {
 		Query countRooms = getEntityManager().createNamedQuery("countBookedRooms");
 		countRooms.setParameter("dateF", dateF);
 		countRooms.setParameter("dateT", dateT);
-		countRooms.setParameter("hotId", hotId);
+		countRooms.setParameter("hotelId", hotelId);
 		List<Integer> resultList = countRooms.getResultList();
 		return resultList;
 	}

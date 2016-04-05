@@ -32,10 +32,10 @@ import javax.persistence.Table;
     @NamedQuery(name = "countBookedRooms",
 			query = "select sum(book.roomQuantity) "
 			+ "from Booking book "
-			+ "join book.hotel hot "
+			+ "join book.hotel hotel "
 			+ "where book.dateFrom >= :dateF and "
 			+ "book.dateTo <= :dateT and "
-			+ "hot.id = :hotId "),
+			+ "hotel.id = :hotelId "),
     @NamedQuery(name = "getBookingsOfPeriod",
 			query = "select book "
 			+ "from Booking book "

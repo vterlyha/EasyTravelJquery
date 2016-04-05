@@ -4,8 +4,8 @@ import java.util.List;
 
 import entity.Hotel;
 
-public interface HotelDAO extends ElementDAO<Hotel, Long> {
-    List<Integer> findAllRoomsInHotelsByCityId(Long cityId);
-    List<Object[]> findAvgRoomsBookingAndCountClientsForHotel(Long hotelId);
-    List<Integer> getHotelRoomQuantity(Long hotId);
+public interface HotelDAO extends ElementDAO<Hotel, Integer> {
+    List<Integer> findAllRoomsInHotelsByCityId(Integer cityId);
+    List<Object[]> findAvgRoomsBookingAndCountClientsForHotel(Integer hotelId);
+    List<Integer> getHotelRoomQuantity(Integer hotelId);
 }

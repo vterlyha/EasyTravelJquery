@@ -54,7 +54,7 @@ public class Client {
     @Column(name = "phoneNumber")
     private Integer phoneNumber;
     
-    @ManyToOne(optional=false, targetEntity=Address.class)
+    @ManyToOne(fetch=FetchType.LAZY, optional=false, targetEntity=Address.class, cascade={CascadeType.ALL})
     @JoinColumn(name="addressId", referencedColumnName="id")
     private Address address;
     

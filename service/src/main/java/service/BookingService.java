@@ -30,7 +30,7 @@ public class BookingService {
     }
     
     @Transactional
-    public Booking getBookingById(Long bookingId) {
+    public Booking getBookingById(Integer bookingId) {
         return bookingDao.getElementByID(bookingId);
     }
     
@@ -45,17 +45,17 @@ public class BookingService {
     }
     
     @Transactional
-    public List<Integer> findFreeAllHotels(Long cityId) {
+    public List<Integer> findFreeAllHotels(Integer cityId) {
         return bookingDao.findAllBookedRoomsInHotelsByCityId(cityId);
     }
     
     @Transactional
-    public List<Integer> findAllVisas(Long countryId) {
+    public List<Integer> findAllVisas(Integer countryId) {
         return bookingDao.findAllGivenVisasInOneCountry(countryId);
     }
     
     @Transactional
-    public List<Integer> countBookedRooms(Date dateF, Date dateT, Long hotId) {
+    public List<Integer> countBookedRooms(Date dateF, Date dateT, Integer hotId) {
     	return bookingDao.countBookedRooms(dateF, dateT, hotId);
     }
     
