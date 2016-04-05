@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,7 +10,50 @@
 <title>Client info</title>
 </head>
 <body>
-	<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
-		<h1>Hello from client info</h1>	
+<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
+	<h1 class="HomePageTextElements" id="TourDestinationsHeader"> Clients information
+		</h1>
+
+			<c:if test="${!empty clientList}">
+				<table class="data">
+					<c:forEach items="${clientList}" var="client">
+						<tr>
+							<td>${client.lastName}, ${client.firstName}</td>
+							<td>${client.email}</td>
+							<td>${client.phoneNumber}</td>
+						</tr>
+					</c:forEach>
+				</table>
+			</c:if>
+
+	<form:form method="post" action="add" modelAttribute="client">			
+		<table>
+			<tr>
+				<td>First Name</td>
+        		<td><form:input path="firstName" /></td>
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td><form:input path="lastName" /></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><form:input path="email" /></td>>
+			</tr>
+			<tr>
+				<td>PhoneNumber</td>
+				<td><form:input path="phoneNumber" /></td>>
+			</tr>
+			<tr>
+				<td>Adress</td>
+				<td><form:input path="address.id" /></td>>
+			</tr>
+			<tr>
+				<td colspan="2">
+				<input type="submit" value="Add client"/></td>
+			</tr>
+		</table>
+	</form:form>
+
 </body>
 </html>
