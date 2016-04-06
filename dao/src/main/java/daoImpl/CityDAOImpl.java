@@ -33,4 +33,11 @@ public class CityDAOImpl extends ElementDAOImpl<City, Integer> implements CityDA
         List<String> resultList = getCities.getResultList();
         return resultList;
 	}
+	
+	public City getCityByName(String cityName) {
+		Query findCity = getEntityManager().createNamedQuery("City.findByName");
+		findCity.setParameter("cityName", cityName);
+        City city = (City)findCity.getSingleResult();
+        return city;
+	};
 }

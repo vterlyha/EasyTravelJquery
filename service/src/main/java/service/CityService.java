@@ -52,4 +52,9 @@ public class CityService {
     public List<String> getCityByCountryId(Integer countryId) {
     	return cityDao.getCityByCountryId(countryId);
     }
+    
+    @Transactional
+    public City getCityByCityName(String cityName) {
+    	return cityDao.getCityByName(cityName);
+    }
 }

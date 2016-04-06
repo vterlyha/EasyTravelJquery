@@ -41,6 +41,11 @@ public abstract class ElementDAOImpl<E, V> implements ElementDAO<E, V> {
 	public E getElementByID(V elementId) {
 		return eManager.find(elementClass, elementId);
 	}
+	
+	@Transactional
+	public E getElementByName(String elementname) {
+		return eManager.find(elementClass, elementname);
+	}
 
 	@SuppressWarnings("unchecked")
 	@Transactional

@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import entity.Booking;
+import entity.City;
+import entity.Client;
 import service.BookingService;
 import service.CityService;
+import service.ClientService;
 import service.CountryService;
 import service.HotelService;
 
@@ -31,6 +34,9 @@ public class GetAllBookingsAndAddNewBooking {
 	
 	@Autowired
 	private HotelService hotelService;
+	
+	@Autowired
+	private ClientService clientService;
 
 	@RequestMapping(value = "/bookings", method=RequestMethod.GET)
 	public String displayBookingInfo(Map<String, Object> map){
@@ -39,24 +45,9 @@ public class GetAllBookingsAndAddNewBooking {
 		map.put("countriesList", countryService.getAllCountries());
 		map.put("citiesList", cityService.getAllCities());
 		map.put("hotelList", hotelService.getAllHotels());
+		map.put("clientList", clientService.getAllClients());
 		return "bookings";
 	}
 	
-	@RequestMapping(value = "/addBooking", method=RequestMethod.POST)
-	public String addBooking(@RequestParam("dateFrom") String dateFrom,
-			@RequestParam("dateTo") String dateTo,
-			@RequestParam("countryId") Integer countryid,
-			@RequestParam("cityId") Integer cityId,
-			@RequestParam("hotelId") Integer hotelId,
-			@RequestParam("roomQuantity") Integer roomQuantity,
-			@RequestParam("clientId") Integer clientId) {
-		
-		String df = dateFrom;
-		String dt = dateTo;
-		Integer i = countryid;
-		int v = 0;
-
-	return "redirect:bookings";
-	}
 }
 

@@ -26,7 +26,9 @@ import javax.persistence.Table;
 			query = "select city.name "
 			+ "from City city "
 			+ "join city.country ctr "
-			+ "where city.id = :countryId ")
+			+ "where city.id = :countryId "),
+	@NamedQuery(name="City.findByName",
+    query="SELECT c FROM City c WHERE c.name = :name")
 })
 
 @Table(name = "cities")
