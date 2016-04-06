@@ -74,26 +74,26 @@ public class Country {
 		this.name = name;
 	}
 	
-	@Override
-	public boolean equals(Object obj) {
-	    if (this == obj)
-	        return true;
-	    if (obj == null)
-	    	return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Country other = (Country) obj;
-        if (id != other.id) {
-            return false;
-        }
-        if (name != other.name) {
-            return false;
-        }
-        if (cities != other.cities) {
-        	return false;
-        }
-        return true;
-    } 
+//	@Override
+//	public boolean equals(Object obj) {
+//	    if (this == obj)
+//	        return true;
+//	    if (obj == null)
+//	    	return false;
+//        if (getClass() != obj.getClass())
+//            return false;
+//        Country other = (Country) obj;
+//        if (id != other.id) {
+//            return false;
+//        }
+//        if (name != other.name) {
+//            return false;
+//        }
+//        if (cities != other.cities) {
+//        	return false;
+//        }
+//        return true;
+//    } 
 	
 	@Override
     public int hashCode() {
@@ -105,6 +105,6 @@ public class Country {
     
     @Override
     public String toString() {
-        return "Country [id=" + id + ", name=" + name + ", cities=" + cities + "]";
+        return "Country [id=" + id + ", name=" + name + "]";
     }
 }

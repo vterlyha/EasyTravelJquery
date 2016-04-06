@@ -1,6 +1,5 @@
 package controllers;
 
-import java.util.Date;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +8,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import entity.Booking;
-import entity.City;
-import entity.Client;
 import service.BookingService;
 import service.CityService;
 import service.ClientService;
@@ -49,5 +45,14 @@ public class GetAllBookingsAndAddNewBooking {
 		return "bookings";
 	}
 	
+	@RequestMapping(value = "/addBooking", method=RequestMethod.POST)
+	public String addClient(@ModelAttribute("booking") Booking booking,
+	BindingResult result) {
+		Booking booking2 = booking;
+		int a = 0;
+		int b = 0;
+	bookingService.addBooking(booking);
+	return "redirect:bookings";
+	}
 }
 

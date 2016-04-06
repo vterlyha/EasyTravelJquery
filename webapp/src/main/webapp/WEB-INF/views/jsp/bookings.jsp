@@ -42,41 +42,43 @@
 			<br>
 			
 	<%-- Adding new hotel--%>
-	<form:form action="addBooking" method="POST" modelAttribute="booking">
+	<form:form action="addBooking" method="post" modelAttribute="booking">
 		<div class="UserDivs" id="addHotelDiv">
 			<h3>Add new booking</h3>
-			<p>Date From</p>
-			<input type="date"  name="dateFrom">
-			<p>Date To</p>
-			<input type="date"  name="dateTo">
+			<p>Date From (yyyy/mm/dd)</p>
+			<form:input path="dateFrom" />
+			<p>Date To (yyyy/mm/dd)</p>
+			<form:input path="dateTo" />
 			<p>Country</p>
-			<p><form:select path="country.name" items="${countriesList}"/></p>
+			<form:select path="country">
+			<c:forEach items="${countriesList}" var="country">
+				<form:option value="${country.name}"/>
+			</c:forEach>
+			</form:select>
 			<p>City</p>
-			<select class="UserSelect" name="cityValue">
-				<option>--Cities--</option>
-				<c:forEach items="${citiesList}" var="city">
-					<option>${city.name}</option>
-				</c:forEach>
-			</select>
+			<form:select path="city">
+			<c:forEach items="${citiesList}" var="city">
+				<form:option value="${city.name}"/>
+			</c:forEach>
+			</form:select>
 			<p>Hotel</p>
-			<select class="UserSelect" name="hotelValue">
-				<option>--Hotels--</option>
-				<c:forEach items="${hotelList}" var="hotel">
-					<option>${hotel.name}</option>
-				</c:forEach>
-			</select>
+			<form:select path="hotel">
+			<c:forEach items="${hotelList}" var="hotel">
+				<form:option value="${hotel.name}"/>
+			</c:forEach>
+			</form:select>
 			<p>RoomQuantity</p>
-			<input type="text"  name="roomQuantity">
+			<form:input path="roomQuantity" />
 			<p>Client</p>
-			<select class="UserSelect" name="clientValue">
-				<option>--Clients--</option>
-				<c:forEach items="${clientList}" var="client">
-					<option>${client.lastName} ${client.firstName}</option>
-				</c:forEach>
-			</select>
+			<form:select path="client">
+			<c:forEach items="${clientList}" var="client">
+				<form:option value="${client.lastName} ${client.firstName}"/>
+			</c:forEach>
+			</form:select>
+
 			<br>
 			<input type="submit" value="Add booking">
-		</div>
+			</div>
 	</form:form>
 
 </body>
