@@ -6,20 +6,32 @@
 <html lang="en">
 	<head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="resources/css/mainStyleSheet.css" />
-        <link href="${mainCss}" rel="stylesheet" />       
+        <link rel="stylesheet" href="resources/css/bootstrap.css" />  
+        <link rel="stylesheet" href="resources/css/mainStyleSheet.css" />  
     </head>
   <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="<spring:url value="/"/>">Home</a></li>
-                <li><a href="<spring:url value="/clientInfo"/>">Clients</a></li>
-                <li><a href="<spring:url value="/hotelInfo"/>">Cities and hotels</a></li>
-                <li><a href="<spring:url value="/bookings"/>">Bookings</a></li>
-            </ul>
-        </div>
-      </nav>
+  	
+    <div class="container">
+    	<h2 class="text-primary">Easy Tour <small class="text-info">Perfect way to plan your vacation</small></h2>
+	    <nav class="navbar navbar-inverse" id="Navbar">
+	        <div class="container-fluid">
+	            <ul class="nav navbar-nav">
+	                <li class="navbarLi">
+	                	<a class="navbarRef" id="ref1" href="<spring:url value="/"/>">Home</a>
+	                </li>
+	                <li class="navbarLi">
+	                	<a class="navbarRef" id="ref2" href="<spring:url value="/clientInfo"/>">Clients</a>
+	                </li>
+	                <li class="navbarLi">
+	                	<a class="navbarRef" id="ref3" href="<spring:url value="/hotelInfo"/>">Cities and hotels</a>
+	                </li>
+	                <li class="navbarLi">
+	                	<a class="navbarRef" id="ref3" href="<spring:url value="/bookings"/>">Bookings</a>
+	                </li>
+	            </ul>
+	        </div>
+	     </nav>
+    </div>
+    
   </body>
 </html>

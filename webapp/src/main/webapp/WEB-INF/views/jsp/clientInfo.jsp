@@ -8,7 +8,7 @@
 	<head>
         <meta charset="utf-8">
         <title>Client info</title>
-        <link rel="stylesheet" href="resources/css/mainStyleSheet.css" />      
+        <link rel="stylesheet" href="resources/css/bootstrap.css" />      
     </head>
 <body>
 	<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
