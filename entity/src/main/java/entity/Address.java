@@ -1,6 +1,5 @@
 package entity;
 
-
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -71,7 +70,8 @@ public class Address {
     /**
      * Constructor with parameters.
      */ 
-    public Address(Integer id, String city, String street, Integer houseNumber, Integer roomNumber) {
+    public Address(Integer id, String city, String street, Integer houseNumber,
+    		Integer roomNumber) {
         this.id = id;
         this.city = city;
         this.street = street;
@@ -186,7 +186,7 @@ public class Address {
     /**
      * Changes list of clients for this address.
      * 
-     * @param id
+     * @param address
      *            list of clients for this address.
      */
     public void setClients(Set<Client> clients) {
@@ -195,12 +195,15 @@ public class Address {
     
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Address other = (Address) obj;
         if (id != other.id) {
             return false;

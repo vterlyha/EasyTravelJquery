@@ -1,6 +1,6 @@
 package daoImpl;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Query;
@@ -13,38 +13,37 @@ import entity.Booking;
 @Repository
 public class BookingDAOImpl extends ElementDAOImpl<Booking, Integer> implements BookingDAO {
 
-    
-    public BookingDAOImpl() {
-        super(Booking.class);
-    }
-    
-    @SuppressWarnings("unchecked")
-    public List<Integer> findAllBookedRoomsInHotelsByCityId(Integer cityId) {
-          Query findBookedRoomsQuery = getEntityManager().createNamedQuery("findAllBookedRoomsInHotelsByCityId");
-          findBookedRoomsQuery.setParameter("cityId", cityId);
-          List<Integer> resultList = findBookedRoomsQuery.getResultList();
-        return resultList;
-    }
-    
-    @SuppressWarnings("unchecked")
-    public List<Integer> findAllGivenVisasInOneCountry(Integer countryId) {
-          Query findAllVisasQuery = getEntityManager().createNamedQuery("findAllGivenVisasInOneCountry");
-          findAllVisasQuery.setParameter("countryId", countryId);
-          List<Integer> resultList = findAllVisasQuery.getResultList();
-          return resultList;
-    }
+	public BookingDAOImpl() {
+		super(Booking.class);
+	}
 
-    @SuppressWarnings("unchecked")
-	public List<Integer> countBookedRooms(Date dateF, Date dateT, Integer hotelId) {
+	@SuppressWarnings("unchecked")
+	public List<Integer> findAllBookedRoomsInHotelsByCityId(Integer cityId) {
+		Query findBookedRoomsQuery = getEntityManager().createNamedQuery("findAllBookedRoomsInHotelsByCityId");
+		findBookedRoomsQuery.setParameter("cityId", cityId);
+		List<Integer> resultList = findBookedRoomsQuery.getResultList();
+		return resultList;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Integer> findAllGivenVisasInOneCountry(Integer countryId) {
+		Query findAllVisasQuery = getEntityManager().createNamedQuery("findAllGivenVisasInOneCountry");
+		findAllVisasQuery.setParameter("countryId", countryId);
+		List<Integer> resultList = findAllVisasQuery.getResultList();
+		return resultList;
+	}
+
+	@SuppressWarnings("unchecked")
+	public Integer countBookedRooms(Date dateF, Date dateT, Integer hotelId) {
 		Query countRooms = getEntityManager().createNamedQuery("countBookedRooms");
 		countRooms.setParameter("dateF", dateF);
 		countRooms.setParameter("dateT", dateT);
 		countRooms.setParameter("hotelId", hotelId);
-		List<Integer> resultList = countRooms.getResultList();
-		return resultList;
+		Integer result = (Integer) countRooms.getSingleResult();
+		return result;
 	}
 
-    @SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked")
 	public List<Booking> getBookingsOfPeriod(Date dateF, Date dateT) {
 		Query getBookings = getEntityManager().createNamedQuery("getBookingsOfPeriod");
 		getBookings.setParameter("dateF", dateF);

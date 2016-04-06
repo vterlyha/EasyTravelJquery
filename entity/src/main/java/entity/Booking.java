@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Entity
 @NamedQueries({
     @NamedQuery(name="findAllBookedRoomsInHotelsByCityId", 
-    		query="select hotels.roomQuantity, sum(bookings.roomQuantity) "
+    		query="select hotels.name, hotels.roomQuantity, sum(bookings.roomQuantity) "
             + "from Booking bookings Right Join "
             + "Hotel hotels "
             + "on (bookings.hotel.id = hotels.id) "
@@ -157,44 +157,44 @@ public class Booking {
         this.roomQuantity = roomQuantity;
     }
 
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) {
-//            return true;
-//        }
-//        if (obj == null) {
-//            return false;
-//        }        
-//        if (getClass() != obj.getClass()) {
-//            return false;
-//        }
-//        Booking other = (Booking) obj;
-//        if (id != other.id) {
-//            return false;
-//        }      
-//        if (dateFrom != other.dateFrom) {
-//            return false;
-//        }        
-//        if (dateTo != other.dateTo) {
-//            return false;
-//        }       
-//        if (country != other.country) {
-//            return false;
-//        }       
-//        if (city != other.city) {
-//            return false;
-//        }
-//        if (hotel != other.hotel) {
-//            return false;
-//        }
-//        if (client != other.client) {
-//            return false;
-//        }
-//        if (roomQuantity != other.roomQuantity) {
-//            return false;
-//        }
-//        return true;
-//    }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }        
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Booking other = (Booking) obj;
+        if (id != other.id) {
+            return false;
+        }      
+        if (dateFrom != other.dateFrom) {
+            return false;
+        }        
+        if (dateTo != other.dateTo) {
+            return false;
+        }       
+        if (country != other.country) {
+            return false;
+        }       
+        if (city != other.city) {
+            return false;
+        }
+        if (hotel != other.hotel) {
+            return false;
+        }
+        if (client != other.client) {
+            return false;
+        }
+        if (roomQuantity != other.roomQuantity) {
+            return false;
+        }
+        return true;
+    }
     
     @Override
     public int hashCode() {
