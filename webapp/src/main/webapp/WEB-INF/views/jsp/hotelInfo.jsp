@@ -14,15 +14,23 @@
 	<%-- Displaying hotel data--%>
 	<table class="UserTable" id="hotelTable">
 		<tr>
-			<th>Number</th><th>Hotel</th><th>City</th><th>Country</th><th>Room quantity</th>
+			<th>Number</th>
+			<th>Hotel</th>
+			<th>City</th>
+			<th>Country</th>
+			<th>Room quantity</th>
+			<th>Clients booked</th>
+			<th>Average booking span</th>
 		</tr>
-		<c:forEach items="${hotels }" var="hotel">
+		<c:forEach items="${generalHotels }" var="genHotel">
 			<tr>
-				<td>${hotel.id }</td>
-				<td>${hotel.name}</td>
-				<td>${hotel.city.name }</td>
-				<td>${hotel.city.country.name }</td>
-				<td>${hotel.roomQuantity }</td>
+				<td>${genHotel.hotel.id }</td>
+				<td>${genHotel.hotel.name}</td>
+				<td>${genHotel.hotel.city.name }</td>
+				<td>${genHotel.hotel.city.country.name }</td>
+				<td>${genHotel.hotel.roomQuantity }</td>
+				<td>${genHotel.numOfClients }</td>
+				<td>${genHotel.avgStayLength }</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -47,7 +55,7 @@
 	</form:form>
 	<br/>
 	<%-- Adding new country--%>
-	<form:form action="insertCountry" method="POST" >
+	<form:form action="insertCountry" method="POST" modelAttribute="country">
 		<div class="UserDivs" id="addCountryDiv">
 			<h3>Add country</h3>
 			<p>Country name</p>
