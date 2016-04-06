@@ -8,15 +8,14 @@
 	<head>
         <meta charset="utf-8">
         <title>Client info</title>
-        <spring:url value="/resources/css/mainStyleSheet.css" var="mainCss" />
-        <link href="${mainCss}" rel="stylesheet" />       
+        <link rel="stylesheet" href="resources/css/mainStyleSheet.css" />      
     </head>
 <body>
 	<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
 	<h1 class="HomePageTextElements" id="TourDestinationsHeader"> Clients information
 		</h1>
 			<c:if test="${!empty clientList}">
-				<table class="data">
+				<table class="allInfo">
 					<tr>
 						<th>First Name, Last Name</th>
 						<th>Email</th>

@@ -6,17 +6,15 @@
 <html lang="en">
 	<head>
         <meta charset="utf-8">
-        <spring:url value="/resources/css/mainStyleSheet.css" var="mainCss" />
+        <link rel="stylesheet" href="resources/css/mainStyleSheet.css" />
         <link href="${mainCss}" rel="stylesheet" />       
     </head>
   <body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">EasyTour</a>
-            </div>
+
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="<spring:url value="/"/>">Home</a></li>
                 <li><a href="<spring:url value="/clientInfo"/>">Clients</a></li>
                 <li><a href="<spring:url value="/hotelInfo"/>">Cities and hotels</a></li>
                 <li><a href="<spring:url value="/bookings"/>">Bookings</a></li>

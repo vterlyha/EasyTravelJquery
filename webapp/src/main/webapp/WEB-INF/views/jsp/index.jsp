@@ -11,7 +11,7 @@
 
     	<title>EasyTour</title>
     	<!-- Bootstrap -->
-    	<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet">
+    	<link rel="stylesheet" href="resources/css/mainStyleSheet.css" />
   	</head>
   	<body>
    		<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
