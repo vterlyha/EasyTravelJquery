@@ -1,20 +1,14 @@
 package controllers;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
+import dto.HotelsTableDto;
 import entity.City;
 import entity.Country;
 import entity.Hotel;
@@ -24,7 +18,7 @@ import service.HotelService;
 
 @Controller
 public class HotelInfoController {
-
+	
 	@Autowired
 	private CountryService countryService;
 	
@@ -37,34 +31,25 @@ public class HotelInfoController {
 	@RequestMapping(value = "/hotelInfo", method=RequestMethod.GET)
 	public String displayHotelInfo(Model model){
 		
-		List<Country> countries = this.countryService.getAllCountries();
-		model.addAttribute("countries", countries);
-		model.addAttribute("currentCountry", countries.get(0));
-		return "hotelInfo";
-	}
-	
-	@RequestMapping(value = "/selectCity", method = RequestMethod.GET)
-	public String displayCities(@RequestParam("countryValue") String countryValue, 
-								@RequestParam("cityValue") String cityValue,
-								Model model) {
-		
-		List<City> cities = new ArrayList<City>();
-		List<Country> countries = this.countryService.getAllCountries();
 		List<Hotel> hotels = this.hotelService.getAllHotels();
+		List<Country> countries = this.countryService.getAllCountries();
+		List<City> cities = this.cityService.getAllCities();
 		
-		for (City c: this.cityService.getAllCities()) {
-			if (c.getCountry().getName().equals(countryValue)) {
-				cities.add(c);
-			}
+		List<HotelsTableDto> generalHotelsInfo = new ArrayList<HotelsTableDto>();
+		List<Object[]> hotelInfoStates = hotelService.findInfoAboutHotels(1);
+		for (int i = 0; i< hotels.size(); i++) {
+				generalHotelsInfo.add(
+					new HotelsTableDto(hotels.get(i),
+							"-","-"));
 		}
-		for (Hotel h: this.hotelService.getAllHotels()) {
-			if (h.getCity().getName().equals(cityValue)) {
-				hotels.add(h);
-			}
+		for (int i = 0; i < hotelInfoStates.size(); i++) {
+			generalHotelsInfo.get(i).setNumOfClients(hotelInfoStates.get(i)[0]);
+			generalHotelsInfo.get(i).setAvgStayLength(hotelInfoStates.get(i)[1]);
 		}
-		model.addAttribute("cities", cities);
-		model.addAttribute("hotels", hotels);
+		model.addAttribute("generalHotels", generalHotelsInfo);
 		model.addAttribute("countries", countries);
-	    return "hotelInfo";
+		model.addAttribute("cities", cities);
+		
+		return "hotelInfo";
 	}
 }

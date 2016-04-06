@@ -29,7 +29,7 @@ public abstract class ElementDAOImpl<E, V> implements ElementDAO<E, V> {
 
 	@Transactional
 	public void addElement(E element) {
-	    eManager.persist(element);
+	    eManager.merge(element);
 	}
 	
 	@Transactional

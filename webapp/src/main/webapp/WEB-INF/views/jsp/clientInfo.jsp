@@ -60,6 +60,7 @@
 				<td><form:input path="address.street" />Street</td>
 				<td><form:input path="address.houseNumber" />House number</td>
 				<td><form:input path="address.roomNumber" />Room number</td>
+
 			</tr>
 			<tr>
 				<td colspan="2">

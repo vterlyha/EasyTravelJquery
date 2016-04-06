@@ -3,7 +3,6 @@ package entity;
 
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -36,10 +35,19 @@ public class Country {
 
 	public Country() {}
 	
-	public Country(Integer id, String name) {
+	public Country(Integer id, String name, Boolean visaRequired) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.visaRequired = visaRequired;
+	}
+
+	public Boolean getVisaRequired() {
+		return visaRequired;
+	}
+
+	public void setVisaRequired(Boolean visaRequired) {
+		this.visaRequired = visaRequired;
 	}
 
 	public Set<Booking> getBookings() {
