@@ -14,9 +14,10 @@ a.navbarRef {
 .navbarRef:hover {
 	font-size:18px;
 }
-#hotelTable, #clientTable, #visitedCountriesTable, #bookingsTable {
+#hotelTable, #clientTable, #visitedCountriesTable, #bookingsTable,
+#refTable {
 	border-style: none;
 }
-#mainClientContainer, #mainBookingContainer {
+#mainClientContainer, #mainBookingContainer, #findFreeRooms, #freeRooms {
 	width:550px;
 }

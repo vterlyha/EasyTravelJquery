@@ -11,12 +11,13 @@
 <link rel="stylesheet" href="resources/css/mainStyleSheet.css" />
 </head>
 <body>
-<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
-	<h1 class="HomePageTextElements" id="TourDestinationsHeader"> Available rooms
-		</h1>
-		<p>Hotel: ${hotel.name}</p>
-		<p>Booked rooms on this dates: ${bookedRooms}</p>
-		<p>All rooms in the hotel: ${roomQuantity}</p>
-		<p>Available rooms: ${availableRooms}</p>
+	<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
+	<div class="container" id="freeRooms">
+		<h2 class="text-primary">Available rooms</h2>
+		<p class="text-info">Hotel: ${hotel.name}</p>
+		<p class="text-info">Booked rooms on this dates: ${bookedRooms}</p>
+		<p class="text-info">All rooms in the hotel: ${roomQuantity}</p>
+		<p class="text-info">Available rooms: ${availableRooms}</p>
+	</div>
 </body>
 </html>

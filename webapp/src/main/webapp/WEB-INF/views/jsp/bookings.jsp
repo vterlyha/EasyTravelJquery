@@ -42,48 +42,61 @@
 			</table>
 		</c:if>
 	</div>
-	<table>
+	<table id="refTable">
 		<tr>
-			<td><a href="freeRoomsStatistics.html">Find free rooms</a></td>
+			<td><a class="text-primary" href="freeRoomsStatistics.html">Find free rooms</a></td>
 		</tr>
-	</table>
+	</table><br/>
 
 
-	<form:form method="post" action="addBooking">
-		<div class="UserDivs" id="addHotelDiv">
-			<h3>Add new booking</h3>
-			<p>Date From</p>
-			<input type="date" name="dateFrom">
-			<p>Date To</p>
-			<input type="date" name="dateTo">
-			<p>Country</p>
-			<select class="UserSelect" name="countryValue">
-				<c:forEach items="${countriesList}" var="country">
-					<option value="${country.id}">${country.name}</option>
-				</c:forEach>
-			</select>
-			<p>City</p>
-			<select class="UserSelect" name="cityValue">
-				<c:forEach items="${citiesList}" var="city">
-					<option value="${city.id}">${city.name}</option>
-				</c:forEach>
-			</select>
-			<p>Hotel</p>
-			<select class="UserSelect" name="hotelValue">
-				<c:forEach items="${hotelList}" var="hotel">
-					<option value="${hotel.id}">${hotel.name}</option>
-				</c:forEach>
-			</select>
-			<p>RoomQuantity</p>
-			<input type="text" name="roomQuantity">
-			<p>Hotel</p>
-			<select class="UserSelect" name="clientValue">
-				<c:forEach items="${clientList}" var="client">
-					<option value="${client.id}">${client.lastName}
-						${client.firstName}</option>
-				</c:forEach>
-			</select> <input type="submit" value="Add booking">
-		</div>
-	</form:form>
+	<div class="container" id="mainBookingContainer">
+		<form:form method="post" action="addBooking">
+			<button type="button" class="btn btn-primary btn-block"
+				data-toggle="collapse" data-target="#addBookingCollapse">Add
+				booking</button>
+			<div id="addBookingCollapse" class="collapse"><br/>
+				<p class="text-info">Date From</p>
+				<input type="date" class="form-control" name="dateFrom">
+				<br/>
+				<p class="text-info">Date To</p>
+				<input type="date" class="form-control" name="dateTo">
+				<br/>
+				<p class="text-info">Country</p>
+				<select class="form-control" name="countryValue">
+					<c:forEach items="${countriesList}" var="country">
+						<option value="${country.id}" class="text-info">${country.name}</option>
+					</c:forEach>
+				</select>
+				<br/>
+				<p class="text-info">City</p>
+				<select class="form-control" name="cityValue">
+					<c:forEach items="${citiesList}" var="city">
+						<option value="${city.id}" class="text-info">${city.name}</option>
+					</c:forEach>
+				</select>
+				<br/>
+				<p class="text-info">Hotel</p>
+				<select class="form-control" name="hotelValue">
+					<c:forEach items="${hotelList}" var="hotel">
+						<option value="${hotel.id}" class="text-info">${hotel.name}</option>
+					</c:forEach>
+				</select>
+				<br/>
+				<p class="text-info">RoomQuantity</p>
+				<input type="text" class="form-control" name="roomQuantity">
+				<br/>
+				<p class="text-info">Hotel</p>
+				<select class="form-control" name="clientValue">
+					<c:forEach items="${clientList}" var="client">
+						<option value="${client.id}" class="text-info">${client.lastName}
+							${client.firstName}</option>
+					</c:forEach>
+				</select> <br/>
+				<input type="submit" class="btn btn-primary btn-block" value="Add booking">
+			</div>
+		</form:form>
+	</div>
+
+
 </body>
 </html>
