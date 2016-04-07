@@ -22,6 +22,6 @@ public class HotelInfoAddCountryController {
 			@RequestParam("visaRequired") Boolean visaRequired) {
 
 		countryService.addCountry(new Country(0,countryName,visaRequired));
-		return "hotelInfo";
+		return "redirect:hotelInfo";
 	}
 }

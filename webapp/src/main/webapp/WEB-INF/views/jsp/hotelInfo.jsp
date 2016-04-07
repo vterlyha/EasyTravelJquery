@@ -53,7 +53,7 @@
 					<form:form action="insertHotel" method="POST">
 						<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#addHotelCollapse">Add hotel</button>
 						<div id="addHotelCollapse" class="collapse">
-							<h3 class="text-primary text-center">Add hotel</h3>
+							<br/>
 							<p class="text-info">Hotel name</p>
 							<input type="text" class="form-control" name="hotelName" />
 							<br/>
@@ -67,7 +67,7 @@
 								</c:forEach>
 							</select>
 							<br/>
-							<input class="btn btn-primary btn-block" type="submit" value="Add hotel">
+							<input class="btn btn-primary btn-block" type="submit" value="Add">
 						</div>
 					</form:form>
 				</div>
@@ -77,13 +77,13 @@
 					<form:form action="insertCountry" method="POST" modelAttribute="country">
 						<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#addCountryCollapse">Add country</button>
 						<div id="addCountryCollapse" class="collapse">
-							<h3 class="text-primary text-center">Add country</h3>
+							<br/>
 							<p class="text-info">Country name</p>
 							<input class="form-control" name="countryName" />
 							<br/>
 							<label class="checkbox-inline text-info"><input type="checkbox" name="visaRequired" >Visa required</label>
 							<br/><br/>
-							<input class="btn btn-primary btn-block" type="submit" value="Add country">
+							<input class="btn btn-primary btn-block" type="submit" value="Add">
 						</div>
 					</form:form>
 				</div>
@@ -93,7 +93,7 @@
 					<form:form action="insertCity" method="POST">
 						<button type="button" class="btn btn-primary btn-block" data-toggle="collapse" data-target="#addCityCollapse">Add city</button>
 						<div id="addCityCollapse" class="collapse">
-							<h3 class="text-primary text-center">Add city</h3>
+							<br/>
 							<p class="text-info">City name</p>
 							<input name="cityName" class="form-control"/>
 							<br/>
@@ -104,7 +104,7 @@
 								</c:forEach>
 							</select>
 							<br/>
-							<input class="btn btn-primary btn-block" type="submit" value="Add city">
+							<input class="btn btn-primary btn-block" type="submit" value="Add">
 						</div>
 					</form:form>
 				</div>

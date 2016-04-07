@@ -35,6 +35,6 @@ public class HotelInfoAddHotelController {
 		Hotel newHotel = new Hotel(0, hotelName, 
 				cityToNewHotel, Integer.parseInt(hotelRoomQuantity));
 		hotelService.addHotel(newHotel);
-		return "hotelInfo";
+		return "redirect:hotelInfo";
 	}
 }

@@ -31,7 +31,6 @@ public class FindAllFreeRoomsOnSomeDate {
 	public String addClient(Map<String, Object> map, @RequestParam("dateFrom") Date dateFrom,
 			@RequestParam("dateTo") Date dateTo, @RequestParam("hotelValue") String hotId) {
 		Integer hotelIdInteger = Integer.parseInt(hotId);
-		Integer hotelIdInteger2 = hotelIdInteger;
 		Integer bookedRooms = bookingService.countBookedRooms(dateFrom, dateTo, hotelIdInteger);
 		Integer roomQuantity = hotelService.getHotelRoomQuantity(hotelIdInteger);
 		map.put("bookedRooms", bookedRooms);
