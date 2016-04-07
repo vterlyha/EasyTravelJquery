@@ -34,6 +34,6 @@ public class HotelInfoAddCityController {
 		City newCity = new City(0,cityName,countryToNewCity);
 		
 		cityService.addCity(newCity);
-		return "hotelInfo";
+		return "redirect:hotelInfo";
 	}
 }
