@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import entity.Hotel;
 import service.BookingService;
 import service.HotelService;
 
@@ -29,11 +28,15 @@ public class FindAllFreeRoomsOnSomeDate {
 	}
 
 	@RequestMapping(value = "/findFreeRooms", method = RequestMethod.GET)
-	public String addClient(@RequestParam("dateFrom") Date dateFrom, @RequestParam("dateTo") Date dateTo,
-			@RequestParam("hotelId") String hotelId) {
-		Integer hotelIdInteger = Integer.parseInt(hotelId);
-		Integer hotelCount = bookingService.countBookedRooms(dateFrom, dateTo, hotelIdInteger);
-		Hotel hotel = hotelService.getHotelById(hotelIdInteger);
-		return "redirect:clientInfo";
+	public String addClient(Map<String, Object> map, @RequestParam("dateFrom") Date dateFrom,
+			@RequestParam("dateTo") Date dateTo, @RequestParam("hotelValue") String hotId) {
+		Integer hotelIdInteger = Integer.parseInt(hotId);
+		Integer bookedRooms = bookingService.countBookedRooms(dateFrom, dateTo, hotelIdInteger);
+		Integer roomQuantity = hotelService.getHotelRoomQuantity(hotelIdInteger);
+		map.put("bookedRooms", bookedRooms);
+		map.put("hotel", hotelService.getHotelById(hotelIdInteger));
+		map.put("roomQuantity", roomQuantity);
+		map.put("availableRooms", (roomQuantity - bookedRooms));
+		return "freeRooms";
 	}
 }

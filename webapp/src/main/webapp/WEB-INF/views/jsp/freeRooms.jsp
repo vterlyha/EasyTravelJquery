@@ -7,26 +7,16 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Free rooms</title>
+<title>Available rooms</title>
 <link rel="stylesheet" href="resources/css/mainStyleSheet.css" />
 </head>
 <body>
 <jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
-	<h1 class="HomePageTextElements" id="TourDestinationsHeader"> Find free rooms
+	<h1 class="HomePageTextElements" id="TourDestinationsHeader"> Available rooms
 		</h1>
-
-		<form:form method="get" action="findFreeRooms">
-			<p>Date From</p>
-			<input type="date" name="dateFrom">
-			<p>Date To</p>
-			<input type="date" name="dateTo">
-			<p>Hotel</p>
-			<select class="UserSelect" name="hotelValue">
-   				<c:forEach items="${hotelList}" var="hotel">
-   					<option value="${hotel.id}">${hotel.name}</option>					
-				</c:forEach>
-			</select>
-			<input type="submit" value="Add booking">
-			</form:form>
+		<p>Hotel: ${hotel.name}</p>
+		<p>Booked rooms on this dates: ${bookedRooms}</p>
+		<p>All rooms in the hotel: ${roomQuantity}</p>
+		<p>Available rooms: ${availableRooms}</p>
 </body>
 </html>
