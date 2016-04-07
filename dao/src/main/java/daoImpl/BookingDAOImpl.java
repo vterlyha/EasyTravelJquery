@@ -33,13 +33,13 @@ public class BookingDAOImpl extends ElementDAOImpl<Booking, Integer> implements 
 		return resultList;
 	}
 
-	@SuppressWarnings("unchecked")
 	public Integer countBookedRooms(Date dateF, Date dateT, Integer hotelId) {
 		Query countRooms = getEntityManager().createNamedQuery("countBookedRooms");
 		countRooms.setParameter("dateF", dateF);
 		countRooms.setParameter("dateT", dateT);
 		countRooms.setParameter("hotelId", hotelId);
-		Integer result = (Integer) countRooms.getSingleResult();
+		Long num = (Long) countRooms.getSingleResult();
+		Integer result = num.intValue();
 		return result;
 	}
 

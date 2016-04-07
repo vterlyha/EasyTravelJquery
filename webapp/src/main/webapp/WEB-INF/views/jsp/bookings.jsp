@@ -39,10 +39,15 @@
 					</c:forEach>
 				</table>
 			</c:if>
-			<br>
-			<p><a href="freeRoomsStatistics.html"></p>
-			<br>
-	<%-- Adding new hotel--%>
+<table>
+<tr>
+<td>
+			<a href="freeRoomsStatistics.html">Find free rooms
+			</td>
+			</tr>
+			</table>
+
+
 	<form:form method="post" action="addBooking">
 		<div class="UserDivs" id="addHotelDiv">
 			<h3>Add new booking</h3>
@@ -78,8 +83,6 @@
 			</select>
 	<input type="submit" value="Add booking">
 	</form:form>
-	
-	<p><a href="freeRoomsStatistics.html"></p>
 
 </body>
 </html>
