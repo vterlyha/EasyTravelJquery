@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Client info</title>
+<title>Booking info</title>
 <link rel="stylesheet" href="resources/css/mainStyleSheet.css" />
 </head>
 <body>
@@ -39,44 +39,49 @@
 					</c:forEach>
 				</table>
 			</c:if>
-			<br>
-			
-	<%-- Adding new hotel--%>
-	<form:form action="addBooking" method="POST" modelAttribute="booking">
+<table>
+<tr>
+<td>
+			<a href="freeRoomsStatistics.html">Find free rooms
+			</td>
+			</tr>
+			</table>
+
+
+	<form:form method="post" action="addBooking">
 		<div class="UserDivs" id="addHotelDiv">
 			<h3>Add new booking</h3>
 			<p>Date From</p>
-			<input type="date"  name="dateFrom">
+			<input type="date" name="dateFrom">
 			<p>Date To</p>
-			<input type="date"  name="dateTo">
+			<input type="date" name="dateTo">
 			<p>Country</p>
-			<p><form:select path="country.name" items="${countriesList}"/></p>
+			<select class="UserSelect" name="countryValue">
+   				<c:forEach items="${countriesList}" var="country">
+   					<option value="${country.id}">${country.name}</option>					
+				</c:forEach>
+			</select>
 			<p>City</p>
 			<select class="UserSelect" name="cityValue">
-				<option>--Cities--</option>
-				<c:forEach items="${citiesList}" var="city">
-					<option>${city.name}</option>
+   				<c:forEach items="${citiesList}" var="city">
+   					<option value="${city.id}">${city.name}</option>					
 				</c:forEach>
 			</select>
 			<p>Hotel</p>
 			<select class="UserSelect" name="hotelValue">
-				<option>--Hotels--</option>
-				<c:forEach items="${hotelList}" var="hotel">
-					<option>${hotel.name}</option>
+   				<c:forEach items="${hotelList}" var="hotel">
+   					<option value="${hotel.id}">${hotel.name}</option>					
 				</c:forEach>
 			</select>
 			<p>RoomQuantity</p>
-			<input type="text"  name="roomQuantity">
-			<p>Client</p>
+			<input type="text" name="roomQuantity">
+			<p>Hotel</p>
 			<select class="UserSelect" name="clientValue">
-				<option>--Clients--</option>
-				<c:forEach items="${clientList}" var="client">
-					<option>${client.lastName} ${client.firstName}</option>
+   				<c:forEach items="${clientList}" var="client">
+   					<option value="${client.id}">${client.lastName} ${client.firstName}</option>					
 				</c:forEach>
 			</select>
-			<br>
-			<input type="submit" value="Add booking">
-		</div>
+	<input type="submit" value="Add booking">
 	</form:form>
 
 </body>

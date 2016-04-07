@@ -1,7 +1,7 @@
 package entity;
 
 
-import java.util.Date;
+import java.sql.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Entity
 @NamedQueries({
     @NamedQuery(name="findAllBookedRoomsInHotelsByCityId", 
-    		query="select hotels.roomQuantity, sum(bookings.roomQuantity) "
+    		query="select hotels.name, hotels.roomQuantity, sum(bookings.roomQuantity) "
             + "from Booking bookings Right Join "
             + "Hotel hotels "
             + "on (bookings.hotel.id = hotels.id) "

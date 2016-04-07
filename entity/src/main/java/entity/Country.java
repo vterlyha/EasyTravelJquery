@@ -105,6 +105,6 @@ public class Country {
     
     @Override
     public String toString() {
-        return "Country [id=" + id + ", name=" + name + ", cities=" + cities + "]";
+        return "Country [id=" + id + ", name=" + name + "]";
     }
 }
