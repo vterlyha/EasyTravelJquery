@@ -8,7 +8,7 @@ public interface CityDAO extends ElementDAO<City, Integer> {
 
 	List<String> findAllHotelsByCityName(String cityName);
 
-	List<String> getCityByCountryId(Integer countryId);
+	List<City> getCityByCountryId(Integer countryId);
 
 	City getCityByName(String cityName);
 }

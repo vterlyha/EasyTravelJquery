@@ -23,7 +23,7 @@ import javax.persistence.Table;
 			query="SELECT hotels.name FROM Hotel hotels, City cities "
 	        + "WHERE cities.id = hotels.city.id and cities.name =:cityName"),
 	@NamedQuery(name = "getCityByCountryId", 
-			query = "select city.name "
+			query = "select city "
 			+ "from City city "
 			+ "join city.country ctr "
 			+ "where city.id = :countryId "),

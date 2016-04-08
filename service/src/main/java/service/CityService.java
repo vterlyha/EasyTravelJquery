@@ -49,7 +49,7 @@ public class CityService {
     }
     
     @Transactional
-    public List<String> getCityByCountryId(Integer countryId) {
+    public List<City> getCityByCountryId(Integer countryId) {
     	return cityDao.getCityByCountryId(countryId);
     }
     

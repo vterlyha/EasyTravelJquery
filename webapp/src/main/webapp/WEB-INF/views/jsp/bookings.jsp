@@ -16,6 +16,7 @@
 <script src="${pageContext.request.contextPath}/resources/js/lib/jquery-1.12.1.js" type="text/javascript"></script>
 </head>
 <body>
+	<p>var a = getCitiesByCountryId()</p>
 	<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>
 	<div class="container">
 		<c:if test="${!empty bookingList}">
@@ -71,9 +72,7 @@
 				<br/>
 				<p class="text-info">City</p>
 				<select class="form-control" name="cityValue">
-					<c:forEach items="${citiesList}" var="city">
-						<option value="${city.id}" class="text-info">${city.name}</option>
-					</c:forEach>
+                	<option>Select City</option>
 				</select>
 				<br/>
 				<p class="text-info">Hotel</p>
