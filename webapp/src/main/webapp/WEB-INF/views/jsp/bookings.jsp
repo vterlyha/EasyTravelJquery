@@ -10,9 +10,10 @@
 <title>Booking info</title>
 <link rel="stylesheet" href="resources/css/bootstrap.css" />
 <link rel="stylesheet" href="resources/css/mainStyleSheet.css" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="resources/js/bootstrap.js"></script>
+<script src="resources/js/bookings.js"></script>
+<script src="resources/js/lib/jquery-1.12.1.js" type="text/javascript"></script>
 </head>
 <body>
 	<jsp:include page="../jsp/fragments/header.jsp"></jsp:include>

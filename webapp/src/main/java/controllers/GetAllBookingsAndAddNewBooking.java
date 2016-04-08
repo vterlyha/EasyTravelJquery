@@ -42,7 +42,6 @@ public class GetAllBookingsAndAddNewBooking {
 	public String displayBookingInfo(Map<String, Object> map) {
 		map.put("bookingList", bookingService.getAllBookings());
 		map.put("countriesList", countryService.getAllCountries());
-		map.put("citiesList", cityService.getAllCities());
 		map.put("hotelList", hotelService.getAllHotels());
 		map.put("clientList", clientService.getAllClients());
 		return "bookings";
