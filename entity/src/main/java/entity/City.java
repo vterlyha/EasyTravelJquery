@@ -17,6 +17,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @NamedQueries({
 	@NamedQuery(name="findAllHotelsByCityName", 
@@ -25,8 +29,7 @@ import javax.persistence.Table;
 	@NamedQuery(name = "getCityByCountryId", 
 			query = "select city "
 			+ "from City city "
-			+ "join city.country ctr "
-			+ "where city.id = :countryId "),
+			+ "where city.country.id = :countryId "),
 	@NamedQuery(name="City.findByName",
     query="SELECT c FROM City c WHERE c.name = :name")
 })
@@ -44,13 +47,17 @@ public class City {
 	
 	@ManyToOne(fetch=FetchType.LAZY, optional=false, targetEntity=Country.class, cascade={CascadeType.ALL})
 	@JoinColumn(name="countryId")
+	@JsonBackReference
 	private Country country;
 	
 	@OneToMany(mappedBy="city", fetch=FetchType.LAZY)
+	@JsonManagedReference
 	private Set<Hotel> hotels;
 	
 	@OneToMany(mappedBy="city", fetch=FetchType.LAZY)
+	@JsonManagedReference
 	private Set<Booking> bookings;
+	
 
 	public City() {}
 	
@@ -84,11 +91,13 @@ public class City {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
+	@JsonIgnore
 	public Country getCountry() {
 		return country;
 	}
 
+	@JsonIgnore
 	public void setCountry(Country country) {
 		this.country = country;
 	}

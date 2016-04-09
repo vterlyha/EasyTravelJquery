@@ -16,6 +16,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @NamedQueries({
     @NamedQuery(name="findAllRoomsInHotelsByCityId", 
@@ -48,9 +51,11 @@ public class Hotel {
 	
 	@ManyToOne(fetch=FetchType.LAZY, optional=false, targetEntity=City.class, cascade={CascadeType.ALL})
 	@JoinColumn(name = "cityId")
+	@JsonBackReference
 	private City city;
 	
 	@OneToMany(mappedBy="hotel", fetch=FetchType.LAZY)
+	@JsonManagedReference
 	private Set<Booking> bookings;
 	
 	public Hotel(){}

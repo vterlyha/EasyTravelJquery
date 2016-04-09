@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "countries")
 public class Country {
@@ -28,9 +30,11 @@ public class Country {
 	private Boolean visaRequired;
 	
 	@OneToMany(mappedBy="country", fetch=FetchType.LAZY)
+	@JsonManagedReference
 	private Set<City> cities;
 	
 	@OneToMany(mappedBy="country", fetch=FetchType.LAZY)
+	@JsonManagedReference
 	private Set<Booking> bookings;
 
 	public Country() {}
