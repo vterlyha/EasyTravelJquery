@@ -32,11 +32,18 @@ public class HotelDAOImpl extends ElementDAOImpl<Hotel, Integer> implements Hote
 		return resultList;
 	}
 
-	@SuppressWarnings("unchecked")
 	public Integer getHotelRoomQuantity(Integer hotId) {
 		Query getRoomQuantity = getEntityManager().createNamedQuery("getHotelRoomQuantity");
 		getRoomQuantity.setParameter("hotId", hotId);
 		Integer result = (Integer) getRoomQuantity.getSingleResult();
 		return result;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Hotel> getHotelByCityId(Integer cityId) {
+		Query getHotels = getEntityManager().createNamedQuery("getHotelByCityId");
+		getHotels.setParameter("cityId", cityId);
+        List<Hotel> resultList = getHotels.getResultList();
+        return resultList;
 	}
 }

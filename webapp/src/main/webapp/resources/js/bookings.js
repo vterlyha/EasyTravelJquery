@@ -14,8 +14,30 @@ $(document).ready(function() {
 			success : function(data) {
 				$selectCities.html('');
     			$.each(data, function(key, val){
-    				$.each(val, function(city) {
-    				$selectCities.append('<option id="' + city.id + '">' + city.name + '</option>');
+    				$.each(val, function() {
+    				$selectCities.append('<option value="' + this.id + '">' + this.name + '</option>');
+    				});
+    			});
+			}
+		});
+	});
+	
+	$('select[name=cityValue]').on('change', function() {
+		var cityId = $('select[name=cityValue]').val();
+		var $selectHotels = $('select[name=hotelValue]');
+		var citiesList = '&(citiesList)';
+		$.ajax({
+			type : "GET",
+			url : "getHotelsByCityId",
+			data : {
+				"cityId" : cityId
+			},
+			dataType:'JSON',
+			success : function(data) {
+				$selectHotels.html('');
+    			$.each(data, function(key, val){
+    				$.each(val, function() {
+    				$selectHotels.append('<option value="' + this.id + '">' + this.name + '</option>');
     				});
     			});
 			}

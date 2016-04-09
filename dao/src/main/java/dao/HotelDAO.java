@@ -10,4 +10,6 @@ public interface HotelDAO extends ElementDAO<Hotel, Integer> {
 	List<Object[]> findAvgRoomsBookingAndCountClientsForHotel(Integer hotelId);
 
 	Integer getHotelRoomQuantity(Integer hotelId);
+	
+	List<Hotel> getHotelByCityId(Integer cityId);
 }

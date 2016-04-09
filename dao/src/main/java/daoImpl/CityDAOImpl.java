@@ -27,7 +27,6 @@ public class CityDAOImpl extends ElementDAOImpl<City, Integer> implements CityDA
 
 	@SuppressWarnings("unchecked")
 	public List<City> getCityByCountryId(Integer countryId) {
-		
 		Query getCities = getEntityManager().createNamedQuery("getCityByCountryId");
         getCities.setParameter("countryId", countryId);
         List<City> resultList = getCities.getResultList();

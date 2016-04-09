@@ -9,22 +9,22 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import service.CityService;
+import service.HotelService;
 
 
 @Controller
-public class GetCitiesByCountryId {
+public class GetHotelsByCityId {
 
     @Autowired
-    private CityService cityService;
+    private HotelService hotelService;
 
     @ResponseBody
-    @RequestMapping(value = "/getCitiesByCountryId", method = RequestMethod.GET,
+    @RequestMapping(value = "/getHotelsByCityId", method = RequestMethod.GET,
                     produces = "application/json")
-    public Map<String, Object> displayBookingInfo(Map<String, Object> map,
-                                                  @RequestParam(value = "countryId", required = false)
-                                                  Integer countryId) {
-        map.put("citiesList", this.cityService.getCityByCountryId(countryId));
+    public Map<String, Object> displayHotelsInfo(Map<String, Object> map,
+                                                  @RequestParam(value = "cityId", required = false)
+                                                  Integer cityId) {
+        map.put("citiesList", this.hotelService.getHotelByCityId(cityId));
         return map;
     }
 }

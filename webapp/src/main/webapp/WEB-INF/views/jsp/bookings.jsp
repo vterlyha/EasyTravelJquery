@@ -72,16 +72,10 @@
 				<br/>
 				<p class="text-info">City</p>
 				<select class="form-control" name="cityValue">
-                	<c:forEach items="${citiesList}" var="city">
-						<option value="${city.id}" class="text-info">${city.name}</option>
-					</c:forEach>
 				</select>
 				<br/>
 				<p class="text-info">Hotel</p>
 				<select class="form-control" name="hotelValue">
-					<c:forEach items="${hotelList}" var="hotel">
-						<option value="${hotel.id}" class="text-info">${hotel.name}</option>
-					</c:forEach>
 				</select>
 				<br/>
 				<p class="text-info">RoomQuantity</p>

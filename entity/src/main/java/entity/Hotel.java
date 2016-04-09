@@ -33,7 +33,12 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
     @NamedQuery(name = "getHotelRoomQuantity", 
 			query = "select hot.roomQuantity "
 			+ "from Hotel hot "
-			+ "where hot.id = :hotId ")
+			+ "where hot.id = :hotId "),
+    
+    @NamedQuery(name = "getHotelByCityId", 
+    		query = "select hotel "
+    		+ "from Hotel hotel "
+    		+ "where hotel.city.id = :cityId  ")
 })
 @Table(name = "hotels")
 public class Hotel {

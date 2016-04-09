@@ -57,4 +57,9 @@ public class HotelService {
 	public Integer getHotelRoomQuantity(Integer hotId) {
 		return hotelDao.getHotelRoomQuantity(hotId);
 	}
+	
+	@Transactional
+	public List<Hotel> getHotelByCityId(Integer cityId) {
+		return hotelDao.getHotelByCityId(cityId);
+	}
 }
