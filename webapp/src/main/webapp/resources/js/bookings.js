@@ -1,8 +1,8 @@
 $(document).ready(function() {
 
-	$('select[name=countryValue]').on('change', function() {
-		var countryId = $('select[name=countryValue]').val();
-		var $selectCities = $('select[name=cityValue]');
+	$('select[name=countryId]').on('change', function() {
+		var countryId = $('select[name=countryId]').val();
+		var $selectCities = $('select[name=cityId]');
 		var citiesList = '&(citiesList)';
 		$.ajax({
 			type : "GET",
@@ -13,18 +13,20 @@ $(document).ready(function() {
 			dataType:'JSON',
 			success : function(data) {
 				$selectCities.html('');
-    			$.each(data, function(key, val){
-    				$.each(val, function() {
-    				$selectCities.append('<option value="' + this.id + '">' + this.name + '</option>');
-    				});
-    			});
+				$selectCities.append('<option>Select city</option>');
+				$.each(data, function(key, val) {
+                    $.each(val, function(keyInner, valueInner) {
+                        $selectCities.append('<option value="' + valueInner.id + '">' +
+                                             valueInner.name + '</option>');
+                    });
+                });
 			}
 		});
 	});
 	
-	$('select[name=cityValue]').on('change', function() {
-		var cityId = $('select[name=cityValue]').val();
-		var $selectHotels = $('select[name=hotelValue]');
+	$('select[name=cityId]').on('change', function() {
+		var cityId = $('select[name=cityId]').val();
+		var $selectHotels = $('select[name=hotelId]');
 		var citiesList = '&(citiesList)';
 		$.ajax({
 			type : "GET",
@@ -35,11 +37,13 @@ $(document).ready(function() {
 			dataType:'JSON',
 			success : function(data) {
 				$selectHotels.html('');
-    			$.each(data, function(key, val){
-    				$.each(val, function() {
-    				$selectHotels.append('<option value="' + this.id + '">' + this.name + '</option>');
-    				});
-    			});
+				$selectHotels.append('<option>Select hotel</option>');
+				$.each(data, function(key, val) {
+                    $.each(val, function(keyInner, valueInner) {
+                        $selectHotels.append('<option value="' + valueInner.id + '">' +
+                                             valueInner.name + '</option>');
+                    });
+                });
 			}
 		});
 	});

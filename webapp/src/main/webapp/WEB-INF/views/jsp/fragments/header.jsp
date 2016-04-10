@@ -26,7 +26,7 @@
 	                	<a class="navbarRef" id="ref3" href="<spring:url value="/hotelInfo"/>">Cities and hotels</a>
 	                </li>
 	                <li class="navbarLi">
-	                	<a class="navbarRef" id="ref3" href="<spring:url value="/bookings"/>">Bookings</a>
+	                	<a class="navbarRef" id="ref3" href="<spring:url value="/bookingsAngular"/>">Bookings</a>
 	                </li>
 	            </ul>
 	        </div>

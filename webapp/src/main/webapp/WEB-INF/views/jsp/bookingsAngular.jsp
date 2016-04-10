@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="resources/css/bootstrap.css" />
 <link rel="stylesheet" href="resources/css/mainStyleSheet.css" />
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bootstrap.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/bookings.js"></script>
 <script src="${pageContext.request.contextPath}/resources/js/lib/jquery-1.12.1.js" type="text/javascript"></script>
@@ -50,7 +51,7 @@
 	</table><br/>
 
 
-	<div class="container" id="mainBookingContainer">
+	<div data-ng-app="" class="container" id="mainBookingContainer">
 		<form:form method="post" action="addBooking">
 			<button type="button" class="btn btn-primary btn-block"
 				data-toggle="collapse" data-target="#addBookingCollapse">Add
@@ -81,7 +82,7 @@
 				</select>
 				<br/>
 				<p class="text-info">RoomQuantity</p>
-				<input type="text" class="form-control" name="roomQuantity">
+				<input type="text" class="form-control" data-ng-model="roomQuantity" name ="roomQuantity">
 				<br/>
 				<p class="text-info">Hotel</p>
 				<select class="form-control" name="clientId">

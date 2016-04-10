@@ -38,27 +38,26 @@ public class GetAllBookingsAndAddNewBooking {
 	@Autowired
 	private ClientService clientService;
 
-	@RequestMapping(value = "/bookings", method = RequestMethod.GET)
+	@RequestMapping(value = "/bookingsAngular", method = RequestMethod.GET)
 	public String displayBookingInfo(Map<String, Object> map) {
 		map.put("bookingList", bookingService.getAllBookings());
 		map.put("countriesList", countryService.getAllCountries());
 		map.put("hotelList", hotelService.getAllHotels());
 		map.put("clientList", clientService.getAllClients());
-		return "bookings";
+		return "bookingsAngular";
 	}
 
 	@RequestMapping(value = "/addBooking", method = RequestMethod.POST)
 	public String addClient(@RequestParam("dateFrom") Date dateFrom, @RequestParam("dateTo") Date dateTo,
-			@RequestParam("countryValue") String countryValue, @RequestParam("cityValue") String cityValue,
-			@RequestParam("hotelValue") String hotelValue, @RequestParam("roomQuantity") String roomQuantity,
-			@RequestParam("clientValue") String clientValue) {
-		Country country = countryService.getCountryById(Integer.parseInt(countryValue));
-		City city = cityService.getCityById(Integer.parseInt(cityValue));
-		Hotel hotel = hotelService.getHotelById(Integer.parseInt(hotelValue));
-		Integer roomQuantityInteger = Integer.parseInt(roomQuantity);
-		Client client = clientService.getClientById(Integer.parseInt(clientValue));
-		Booking booking = new Booking(0, dateFrom, dateTo, country, city, hotel, client, roomQuantityInteger);
+			@RequestParam("countryId") Integer countryId, @RequestParam("cityId") Integer cityId,
+			@RequestParam("hotelId") Integer hotelId, @RequestParam("roomQuantity") Integer roomQuantity,
+			@RequestParam("clientId") Integer clientId) {
+		Country country = countryService.getCountryById(countryId);
+		City city = cityService.getCityById(cityId);
+		Hotel hotel = hotelService.getHotelById(hotelId);
+		Client client = clientService.getClientById(clientId);
+		Booking booking = new Booking(0, dateFrom, dateTo, country, city, hotel, client, roomQuantity);
 		bookingService.addBooking(booking);
-		return "redirect:bookings";
+		return "redirect:bookingsAngular";
 	}
 }
